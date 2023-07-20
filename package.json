@@ -1,0 +1,22 @@
+{
+  "name": "proyecto-integrador",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jul772/proyecto-integrador-.git"
+  },
+  "author": "Julian Armella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jul772/proyecto-integrador-/issues"
+  },
+  "homepage": "https://github.com/Jul772/proyecto-integrador-#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
