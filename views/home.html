@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitFit</title>
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"    >
     <link rel="stylesheet" href="/css/styles-home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,18 +17,57 @@
                 <input type="text" class="navegacion-texto" placeholder="Buscar productos">
                 <i class="fas fa-search" id="lupa"></i>
             </div>
-            <div class="login"><i class="fas fa-user"></i>Registrate</div>
-            <div class="shopp-cart"><i class="fas fa-shopping-cart"></i>Tu carrito</div>
+            <div class="login"><a href="http://localhost:5000/registro"><i class="fas fa-user"></i>Registrate</a></div>
+            <div class="login"><a href="http://localhost:5000/login"><i class="fas fa-sign-in-alt"></i>Iniciar sesion</a></div>
+            <div class="shopp-cart"><a href="http://localhost:5000/producto"><i class="fas fa-shopping-cart"></i>Tu carrito</a></div>
         </nav>
-        <nav class="navegacion"></nav>
+        <nav class="navegacion">
+            <div class="site">Suplementos</div>
+            <div class="site">Ropa</div>
+            <div class="site">Snacks</div>
+            <div class="site">Vitaminas</div>
+            <div class="site">Nutricion</div>
+        </nav>
     </header>
 
     <main>
+        <h2>Mas vendidos</h2>
+        <section class="Articulos">
+            <article class="articulo">
+                <div class="img-container">
+                    <img src="/images/articulo-vitaminas.webp" alt="">
+                </div>
+                <div class="descripcion-container">
+                    <div class="detalles">
+                        <div class="article-name">Multivitamínico Vegano A-Z Cápsulas</div>
+                        <div class="article-cost">desde 10,99 €</div>
+                    </div>
+                    <div class="caracteristicas">
+                        <div class="article-rating">
 
+                        </div>
+                        <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i>40% OFERTA</div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <h2>Articulos recomendados</h2>
+        <section class="Articulos">
+            
+        </section>
     </main>
 
     <footer>
-        
+        <p class="copyright">@derechos reservados a gymfit</p>
+        <div class="container-buttons-social-2">
+            <div href="#" class="footer-iconos"><i class="fas fa-envelope" style="color: #27f00cec;"></i></div>
+            <div href="#" class="footer-iconos"><i class="fab fa-facebook" style="color: #0033ff;"></i></div>
+            <div href="#" class="footer-iconos"><i class="fab fa-twitter" style="color: #00ebe7;"></i></div>
+            <div href="#" class="footer-iconos"><i class="fab fa-instagram" style="color: black"></i></div>
+            <div href="#" class="footer-iconos"><i class="fab fa-pinterest" style="color: #ff4000;"></i></div>
+        </div>
     </footer>
+</body>
+</html>
 </body>
 </html>
