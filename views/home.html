@@ -17,6 +17,11 @@
                 <input type="text" class="navegacion-texto" placeholder="Buscar productos">
                 <i class="fas fa-search" id="lupa"></i>
             </div>
+                <div class="menu-bars"><i class="fas fa-bars"></i></div>
+        </nav>
+        
+        <nav class="login-nav">
+            </div>
             <div class="login"><a href="http://localhost:5000/registro"><i class="fas fa-user"></i>Registrate</a></div>
             <div class="login"><a href="http://localhost:5000/login"><i class="fas fa-sign-in-alt"></i>Iniciar sesion</a></div>
             <div class="shopp-cart"><a href="http://localhost:5000/producto"><i class="fas fa-shopping-cart"></i>Tu carrito</a></div>
@@ -32,15 +37,135 @@
 
     <main>
         <h2>Mas vendidos</h2>
-        <section class="Articulos">
+        <section class="articulos-mas-vendidos">
             <article class="articulo">
                 <div class="img-container">
-                    <img src="/images/articulo-vitaminas.webp" alt="">
+                    <img class="img-producto" src="/images/articulo-proteina.webp" alt="imagen del producto">
                 </div>
                 <div class="descripcion-container">
                     <div class="detalles">
-                        <div class="article-name">Multivitamínico Vegano A-Z Cápsulas</div>
-                        <div class="article-cost">desde 10,99 €</div>
+                        <div class="article-name">Proteina en polvo</div>
+                        <div class="article-cost">22€</div>
+                    </div>
+                    <div class="caracteristicas">
+                        <div class="article-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="articulo">
+                <div class="img-container">
+                    <img class="img-producto" src="/images/articulo-protein-coffee.webp" alt="imagen del producto">
+                </div>
+                <div class="descripcion-container">
+                    <div class="detalles">
+                        <div class="article-name">Caffe de proteina</div>
+                        <div class="article-cost">2€</div>
+                    </div>
+                    <div class="caracteristicas">
+                        <div class="article-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="articulo">
+                <div class="img-container">
+                    <img class="img-producto" src="/images/articulo-shaker.webp" alt="imagen del producto">
+                </div>
+                <div class="descripcion-container">
+                    <div class="detalles">
+                        <div class="article-name">Botella agitadora</div>
+                        <div class="article-cost"> 5€
+                        </div>
+                    <div class="caracteristicas">
+                        <div class="article-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="articulo">
+                <div class="img-container">
+                    <img class="img-producto" src="/images/articulo-galletas-proteina.webp" alt="imagen del producto">
+                </div>
+                <div class="descripcion-container">
+                    <div class="detalles">
+                        <div class="article-name">Galletas de proteina</div>
+                        <div class="article-cost"> 6€</div>
+                    </div>
+                    <div class="caracteristicas">
+                        <div class="article-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <h2>Articulos en oferta</h2>
+        <section class="articulos-en-oferta">
+            <article class="articulo">
+                <div class="img-container">
+                    <img class="img-producto" src="/images/articulo-vitaminas.webp" alt="imagen del producto">
+                </div>
+                <div class="descripcion-container">
+                    <div class="detalles">
+                        <div class="article-name">Multivitamínico vegano</div>
+                        <div class="article-cost">10.99€</div>
+                    </div>
+                    <div class="caracteristicas">
+                        <div class="article-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i>40% OFF</div>
+                    </div>
+                </div>
+            </article>
+            <article class="articulo">
+                <div class="img-container">
+                    <img class="img-producto" src="/images/articulo-creatina-pastillas.webp" alt="imagen del producto">
+                </div>
+                <div class="descripcion-container">
+                    <div class="detalles">
+                        <div class="article-name">Creatina en capsulas</div>
+                        <div class="article-cost">36€</div>
+                    </div>
+                    <div class="caracteristicas">
+                        <div class="article-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i>15% OFF</div>
+                    </div>
+                </div>
+            </article>
+            <article class="articulo">
+                <div class="img-container">
+                    <img class="img-producto" src="/images/articulo-pre-workout.webp" alt="imagen del producto">
+                </div>
+                <div class="descripcion-container">
+                    <div class="detalles">
+                        <div class="article-name">Pre-Entreno</div>
+                        <div class="article-cost"> 45€</div>
+                    </div>
+                    <div class="caracteristicas">
+                        <div class="article-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="article-offer">
+                            <i class="fas fa-tags fa-flip-horizontal"></i>15% OFF
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="articulo">
+                <div class="img-container">
+                    <img class="img-producto" src="/images/articulo-creatina.webp" alt="imagen del producto">
+                </div>
+                <div class="descripcion-container">
+                    <div class="detalles">
+                        <div class="article-name">Creatina en polvo</div>
+                        <div class="article-cost"> 45€</div>
                     </div>
                     <div class="caracteristicas">
                         <div class="article-rating">
@@ -51,14 +176,13 @@
                 </div>
             </article>
         </section>
-        <h2>Articulos recomendados</h2>
         <section class="Articulos">
             
         </section>
     </main>
 
     <footer>
-        <p class="copyright">@derechos reservados a gymfit</p>
+        <div class="copyright">@Copyright2023-GitFit</div>
         <div class="container-buttons-social-2">
             <div href="#" class="footer-iconos"><i class="fas fa-envelope" style="color: #27f00cec;"></i></div>
             <div href="#" class="footer-iconos"><i class="fab fa-facebook" style="color: #0033ff;"></i></div>

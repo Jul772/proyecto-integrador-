@@ -14,11 +14,16 @@ a{
 }
 header{
     display: flex;
-    flex-direction: column;
     background-color: white;
+    flex-wrap: wrap;
 }
 h2{
     color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.329);
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px;
 }
 .navegacion-texto{
     display: flex;
@@ -39,9 +44,16 @@ h2{
     display: flex;
     align-items: center;
     width: 100%;
+    justify-content: space-around;
+}
+.login-nav{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
 }
 .logo{
-    width: 10%;
+    width: 20%;
     height: auto;
 }
 .busqueda-texto{
@@ -49,16 +61,17 @@ h2{
     width: 60%;
     justify-content: center;
 }
-.login{
-    width: 12%;
+.menu-bars{
+    font-size: 2em;
 }
-.shopp-cart{
-    width: 12%;
+.login,.shopp-cart{
+    width: 30%;
+    padding: 10px 0px;
+    text-align: center;
 }
 .navegacion{
-    display: flex;
+    display: none;
     width: 100%;
-    padding: 10px;
     background-color: aqua;
 }
 .site{
@@ -66,27 +79,91 @@ h2{
     width: 100%;
     align-items: center;
     justify-content: space-around;
+    border-right: 1px gray solid;
+    padding: 10px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    align-items: center;
+    margin: auto;
+}
+.articulos-mas-vendidos{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.articulos-en-oferta{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.articulo{
+    width: 90%;
+    padding: 20px;
+    background-color: rgba(0, 20, 90, 0.25);
+    border-radius: 10px;
+    margin: 20px  0px;
+}
+.img-producto{
+    width: 100%;
+    border-radius: 5px;
 }
 .descripcion-container{
     color: white;
+}
+.article-name,.article-cost,.article-rating,.article-offer{
+    padding: 5px 0px;
+}
+.article-offer{
+    color: greenyellow;
 }
 footer{
     background-color: white;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 .container-buttons-social-2{
     padding: 20px;
     display: flex;
+    width: 50%;
 	gap: 15px;
 	align-items: center;
     justify-content: end;
     position: relative;
 }
-.footer-iconos{
-    width: 20px;
-}
 .copyright{
     display: flex;
     align-self: center;
+    width: 50%;
+    padding: 10px;
+}
+@media (min-width: 430px){
+    .navegacion{
+        display: flex;
+    }
+    .menu-bars{
+        display: none;
+    }
+    .articulo{
+        width: 45%;
+    }
+}
+@media (min-width: 768px){
+    .busqueda,.login-nav{
+        width: 50%;
+    }
+}
+@media (min-width: 900px){
+    .articulo{
+        width: 22%;
+    }
 }
