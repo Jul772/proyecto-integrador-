@@ -1,24 +1,13 @@
 const express = require("express")
 const path = require("path")
 const app = express()
+let homeRutas = require('./routes/main')
 
 app.use(express.static('public'))
 
+app.set('views', __dirname +'/views')
+app.set('view engine','ejs')
+
+app.get('/',homeRutas)
+
 app.listen(5000,() => (console.log("servidor abierto")))
-
-app.get('/',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"./views/home.html"))
-})
-app.get('/login',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"./views/log-in.html"))
-})
-app.get('/registro',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"./views/registro.html"))
-})
-app.get('/producto',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"./views/product.html"))
-})
-
-app.get('/carrito',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,"./views/carrito.html"))
-})
