@@ -1,9 +1,11 @@
+const express=require('express')
+
 const homeController = {
-    home: (req,res) => {
-        res.render("home")
+    home: function(req,res){
+        res.render('home')
     },
-    login: (req,res) => {
-        res.render("login")
+    login: function(req,res){
+        res.render('login')
     }
 }
 module.exports = homeController
