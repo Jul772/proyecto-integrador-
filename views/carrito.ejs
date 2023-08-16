@@ -8,32 +8,9 @@
     <title>Tu Carrito de Compras</title>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>MYPROTEIN</h1>
-        </div>
-        <div class="search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" name="search" id="" placeholder="Buscar...">
-        </div>
-        <div class="action">
-            <div class="user">
-                <i class="fa-regular fa-user demo"></i><p>Cuenta</p>
-            </div>
-            <div class="cart">
-                <i class="fa-solid fa-cart-shopping demo"></i><p>Carrito</p>
-            </div>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li>Nutricion</li>
-            <li>Ropa</li>
-            <li>Barritas y Snacks</li>
-            <li>Vegan</li>
-            <li>Vitaminas</li>
-        </ul>
-    </nav>
+    <%- include("./partials/header") %>
+
+
     <main>
         <div class="title">
             <h2>Tu Carrito</h2>
@@ -67,5 +44,8 @@
             </div>
         </div>
     </main>
+    <footer>
+    <%- include("./partials/footer") %>
+    </footer>
 </body>
 </html>

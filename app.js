@@ -8,6 +8,6 @@ app.use(express.static('public'))
 app.set('views', __dirname +'/views')
 app.set('view engine','ejs')
 
-app.get('/',homeRutas)
+app.use('/',homeRutas)
 
 app.listen(5000,() => (console.log("servidor abierto")))
