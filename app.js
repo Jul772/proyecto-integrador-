@@ -1,13 +1,16 @@
 const express = require("express")
-const path = require("path")
 const app = express()
-let homeRutas = require('./routes/main')
-
+const mainRutas = require('./routes/main.js')
 app.use(express.static('public'))
 
-app.set('views', __dirname +'/views')
+app.listen(5000,() => (console.log("servidor abierto")))
+
 app.set('view engine','ejs')
 
+<<<<<<< HEAD
 app.use('/',homeRutas)
 
 app.listen(5000,() => (console.log("servidor abierto")))
+=======
+app.use('/',mainRutas)
+>>>>>>> ee9e084467f11152c3a4da759f05af71aed94563
