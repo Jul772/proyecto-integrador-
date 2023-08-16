@@ -19,18 +19,12 @@ p{
 img {
 	max-width: 100%;
 }
-
-header {
-	display: flex;
-	align-items: center;
-	padding: 30px;
-	justify-content: center;
-}
 main {
 	display: flex;
 	gap: 30px;
 	margin-bottom: 80px;
 	align-items: center;
+	flex-direction: row;
 }
 
 .container-img {
@@ -288,26 +282,9 @@ main {
 .text-product p:hover{
     color: #1bbeb4;
 }
-
-footer {
-	padding: 30px;
-	background-color: #eee;
-	margin-top: 50px;
-}
-.footer{
-    position: relative;
-    color: black;
-    top:15px
-}
-
 a{
     text-decoration: none;
     color: black;
-}
-header{
-    display: flex;
-    background-color: white;
-    flex-wrap: wrap;
 }
 h2{
     color: white;
@@ -410,12 +387,6 @@ h2{
 .article-offer{
     color: greenyellow;
 }
-footer{
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
 .container-buttons-social-2{
     padding: 20px;
     display: flex;
@@ -441,9 +412,6 @@ footer{
     .articulo{
         width: 45%;
     }
-	main{
-		flex-direction: column;
-	}
 }
 @media (min-width: 768px){
     .busqueda,.login-nav{

@@ -2,37 +2,17 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <tittle>producto</tittle>
+        <tittle></tittle>
         <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="/css/styleprd.css">
+		<link rel="stylesheet" href="/css/normalize.css">
     </head>
+	<header>
+		<%- include("./partials/header") %>
+	</header>
     <body>
-		<header>
-			<nav class="busqueda">
-				<img class="logo" src="/images/logo.png" alt="logo">
-				<div class="busqueda-texto">
-					<input type="text" class="navegacion-texto" placeholder="Buscar productos">
-					<i class="fas fa-search" id="lupa"></i>
-				</div>
-					<div class="menu-bars"><i class="fas fa-bars"></i></div>
-			</nav>
-			
-			<nav class="login-nav">
-				</div>
-				<div class="login"><a href="http://localhost:5000/registro"><i class="fas fa-user"></i>Registrate</a></div>
-				<div class="login"><a href="http://localhost:5000/login"><i class="fas fa-sign-in-alt"></i>Iniciar sesion</a></div>
-				<div class="shopp-cart"><a href="http://localhost:5000/carrito"><i class="fas fa-shopping-cart"></i>Tu carrito</a></div>
-			</nav>
-			<nav class="navegacion">
-				<div class="site">Suplementos</div>
-				<div class="site">Ropa</div>
-				<div class="site">Snacks</div>
-				<div class="site">Vitaminas</div>
-				<div class="site">Nutricion</div>
-			</nav>
-		</header>
-		<main>
+		<main class="manu-2">
 			<div class="container-img">
 				<img
 					src="https://static.thcdn.com/images/large/original//productimg/1600/1600/10961187-3924873399068777.jpg"
@@ -200,17 +180,7 @@
 				</div>
 			</div>
 		</section>
-
-		<footer>
-			<p class="footer">@derechos reservados a gymfit</p>
-            <div class="container-buttons-social-2">
-                <a href="#"><i class="fa-solid fa-envelope" style="color: #27f00cec;"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook" style="color: #0033ff;"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter" style="color: #00ebe7;"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram" style="color: black"></i></a>
-                <a href="#"><i class="fa-brands fa-pinterest" style="color: #ff4000;"></i></a>
-            </div>
-		</footer>
+		<%- include("./partials/footer") %>
         <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
 	</body>
 </html>

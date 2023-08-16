@@ -125,12 +125,6 @@ main{
 .article-offer{
     color: greenyellow;
 }
-footer{
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
 .container-buttons-social-2{
     padding: 20px;
     display: flex;

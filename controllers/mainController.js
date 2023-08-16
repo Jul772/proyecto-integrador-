@@ -4,11 +4,17 @@ const homeController = {
     home: function(req,res){
         res.render('home')
     },
-    login: function(req,res){
-        res.render('login')
+    login: (req,res) => {
+        res.render("login")
     },
-    registro: function(req,res){
-        res.render('registro')
+    carrito: (req,res) => {
+        res.render("carrito")
+    },
+    registro: (req,res) => {
+        res.render("registro")
+    },
+    producto: (req,res) => {
+        res.render("product")
     }
 }
 module.exports = homeController
