@@ -12,76 +12,7 @@ a{
     text-decoration: none;
     color: black;
 }
-header{
-    display: flex;
-    background-color: white;
-    flex-wrap: wrap;
-}
-h2{
-    color: white;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.329);
-    width: fit-content;
-    border-radius: 5px;
-    padding: 10px;
-}
-.navegacion-texto{
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    padding: 5px 10px;
-    width: 80%;
-}
-#lupa{
-    display: flex;
-    align-self: center;
-    padding: 5px;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-.busqueda{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-around;
-}
-.login-nav{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
-}
-.logo{
-    width: 20%;
-    height: auto;
-}
-.busqueda-texto{
-    display: flex;
-    width: 60%;
-    justify-content: center;
-}
-.menu-bars{
-    font-size: 2em;
-}
-.login,.shopp-cart{
-    width: 30%;
-    padding: 10px 0px;
-    text-align: center;
-}
-.navegacion{
-    display: none;
-    width: 100%;
-    background-color: aqua;
-}
-.site{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
-    border-right: 1px gray solid;
-    padding: 10px;
-}
+
 main{
     display: flex;
     flex-direction: column;

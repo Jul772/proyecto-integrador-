@@ -7,5 +7,4 @@ app.listen(5000,() => (console.log("servidor abierto")))
 
 app.set('view engine','ejs')
 
-app.listen(5000,() => (console.log("servidor abierto")))
 app.use('/',mainRutas)
