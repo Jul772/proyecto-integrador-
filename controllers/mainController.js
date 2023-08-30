@@ -19,6 +19,13 @@ const homeController = {
     },
     producto: (req,res) => {
         res.render("product")
-    }
+    },
+    create: (req,res) => {
+        res.render("create")
+    },
+    edit: (req,res) => {
+        res.render("product-edit")
+    },
+
 }
 module.exports = homeController
