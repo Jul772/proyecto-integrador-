@@ -15,146 +15,57 @@
     <main>
         <h2>Mas vendidos</h2>
         <section class="articulos-mas-vendidos">
-            <article class="articulo">
+            <% for (let i=0; i<products.length; i++){%>
+            <%if(products[i].category=='best-seller'){%>
+            <a href="/product" class="articulo">
                 <div class="img-container">
-                    <img class="img-producto" src="/images/articulo-proteina.webp" alt="imagen del producto">
+                    <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">
                 </div>
                 <div class="descripcion-container">
                     <div class="detalles">
-                        <div class="article-name">Proteina en polvo</div>
-                        <div class="article-cost">22€</div>
+                        <div class="article-name"><%=products[i].name%></div>
+                        <div class="article-cost">$<%=products[i].price%></div>
                     </div>
                     <div class="caracteristicas">
                         <div class="article-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <%for(let i=0;i<=products[i].rating;i++){%>
+                            <i class="fas fa-star"></i>
+                            <%}%>
                         </div>
+                        <%if(products[i].discount!=0){%>
+                        <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i><%=products[i].discount%>% OFF</div>
+                        <%}%>
                     </div>
                 </div>
-            </article>
-            <article class="articulo">
-                <div class="img-container">
-                    <img class="img-producto" src="/images/articulo-protein-coffee.webp" alt="imagen del producto">
-                </div>
-                <div class="descripcion-container">
-                    <div class="detalles">
-                        <div class="article-name">Caffe de proteina</div>
-                        <div class="article-cost">2€</div>
-                    </div>
-                    <div class="caracteristicas">
-                        <div class="article-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="articulo">
-                <div class="img-container">
-                    <img class="img-producto" src="/images/articulo-shaker.webp" alt="imagen del producto">
-                </div>
-                <div class="descripcion-container">
-                    <div class="detalles">
-                        <div class="article-name">Botella agitadora</div>
-                        <div class="article-cost"> 5€
-                        </div>
-                    <div class="caracteristicas">
-                        <div class="article-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="articulo">
-                <div class="img-container">
-                    <img class="img-producto" src="/images/articulo-galletas-proteina.webp" alt="imagen del producto">
-                </div>
-                <div class="descripcion-container">
-                    <div class="detalles">
-                        <div class="article-name">Galletas de proteina</div>
-                        <div class="article-cost"> 6€</div>
-                    </div>
-                    <div class="caracteristicas">
-                        <div class="article-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </article>
+            </a>
+            <%}}%>
         </section>
-        <h2>Articulos en oferta</h2>
+        <h2>Artículos en oferta</h2>
         <section class="articulos-en-oferta">
-            <article class="articulo">
-                <div class="img-container">
-                    <img class="img-producto" src="/images/articulo-vitaminas.webp" alt="imagen del producto">
-                </div>
-                <div class="descripcion-container">
-                    <div class="detalles">
-                        <div class="article-name">Multivitamínico vegano</div>
-                        <div class="article-cost">10.99€</div>
+            <% for (let i=0; i<products.length; i++){%>
+            <%if (products[i].category=='in-sale'){%>
+                <a href="/product" class="articulo">
+                    <div class="img-container">
+                        <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">
                     </div>
-                    <div class="caracteristicas">
-                        <div class="article-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <div class="descripcion-container">
+                        <div class="detalles">
+                            <div class="article-name"><%=products[i].name%></div>
+                            <div class="article-cost">$<%=products[i].price%></div>
                         </div>
-                        <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i>40% OFF</div>
-                    </div>
-                </div>
-            </article>
-            <article class="articulo">
-                <div class="img-container">
-                    <img class="img-producto" src="/images/articulo-creatina-pastillas.webp" alt="imagen del producto">
-                </div>
-                <div class="descripcion-container">
-                    <div class="detalles">
-                        <div class="article-name">Creatina en capsulas</div>
-                        <div class="article-cost">36€</div>
-                    </div>
-                    <div class="caracteristicas">
-                        <div class="article-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i>15% OFF</div>
-                    </div>
-                </div>
-            </article>
-            <article class="articulo">
-                <div class="img-container">
-                    <img class="img-producto" src="/images/articulo-pre-workout.webp" alt="imagen del producto">
-                </div>
-                <div class="descripcion-container">
-                    <div class="detalles">
-                        <div class="article-name">Pre-Entreno</div>
-                        <div class="article-cost"> 45€</div>
-                    </div>
-                    <div class="caracteristicas">
-                        <div class="article-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="article-offer">
-                            <i class="fas fa-tags fa-flip-horizontal"></i>15% OFF
+                        <div class="caracteristicas">
+                            <div class="article-rating">
+                                <%for(let i=0;i<=products[i].rating;i++){%>
+                                <i class="fas fa-star"></i>
+                                <%}%>
+                            </div>
+                            <%if(products[i].discount!=0){%>
+                            <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i><%=products[i].discount%>% OFF</div>
+                            <%}%>
                         </div>
                     </div>
-                </div>
-            </article>
-            <article class="articulo">
-                <div class="img-container">
-                    <img class="img-producto" src="/images/articulo-creatina.webp" alt="imagen del producto">
-                </div>
-                <div class="descripcion-container">
-                    <div class="detalles">
-                        <div class="article-name">Creatina en polvo</div>
-                        <div class="article-cost"> 45€</div>
-                    </div>
-                    <div class="caracteristicas">
-                        <div class="article-rating">
-
-                        </div>
-                        <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i>40% OFERTA</div>
-                    </div>
-                </div>
-            </article>
-        </section>
-        <section class="Articulos">
-            
+                </a>
+            <%}}%>
         </section>
     </main>
 
