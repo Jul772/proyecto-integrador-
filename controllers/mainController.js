@@ -15,6 +15,9 @@ const homeController = {
     },
     producto: (req,res) => {
         res.render("product")
+    },
+    create: (req,res) => {
+        res.render("create")
     }
 }
 module.exports = homeController

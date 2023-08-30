@@ -2,6 +2,8 @@ const homeController = require("../controllers/mainController")
 const express = require('express')
 const router = express.Router()
 
+router.get("/create",homeController.create)
+
 router.get("/carrito",homeController.carrito)
 
 router.get("/producto",homeController.producto)

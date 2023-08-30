@@ -1,0 +1,46 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-image: url(/images/fondo2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    flex-direction: row;
+}
+* {
+    box-sizing: border-box;
+    flex-direction: row;
+}
+.formulario{
+    position: relative;
+    bottom:50px;
+    background: #fff;
+    margin-top: 150px;
+    padding: 3px;
+
+}
+
+.form-label {
+    display: inline-block;
+    font-size: 1.6em;
+    margin: 10px 0;
+  }
+  
+  .form-input {
+    display: block;
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-radius: 8px;
+    border: none;
+    border: solid 1px var(--gray);
+    padding: 0 15px;
+  }
+  
+  textarea.form-input {
+   
+    min-height: 140px;
+    resize: vertical;
+    padding: 15px;
+  }
