@@ -1,0 +1,102 @@
+[
+{
+    "id": 1,
+    "name": "Proteína Whey",
+    "price": 29.99,
+    "discount": 0,
+    "category": "best-seller",
+    "description": "Polvo de proteína de suero de leche para promover la recuperación muscular después del ejercicio intenso.",
+    "img": "whey-protein.jpg",
+    "rating": 4
+},
+{
+    "id": 2,
+    "name": "Creatina Monohidratada",
+    "price": 19.99,
+    "discount": 10,
+    "category": "in-sale",
+    "description": "Suplemento de creatina en polvo para mejorar la fuerza y la resistencia muscular.",
+    "img": "Creatina Monohidratada.jpg",
+    "rating": 4
+},
+{
+    "id": 3,
+    "name": "Barras de Proteína",
+    "price": 15.49,
+    "discount": 0,
+    "category": "best-seller",
+    "description": "Barras de proteína deliciosas y convenientes para satisfacer tus necesidades de proteínas en cualquier lugar.",
+    "img": "barras.jpg",
+    "rating": 3
+},
+{
+    "id": 4,
+    "name": "Pre-Entreno Energético",
+    "price": 27.99,
+    "discount": 15,
+    "category": "in-sale",
+    "description": "Fórmula pre-entrenamiento para aumentar la energía y el enfoque durante tus sesiones de ejercicios intensos.",
+    "img": "pre entreno.png",
+    "rating": 4
+},
+{
+    "id": 5,
+    "name": "Aminoácidos Ramificados (BCAA)",
+    "price": 22.95,
+    "discount": 0,
+    "category": "best-seller",
+    "description": "Suplemento de aminoácidos esenciales para apoyar la recuperación muscular y la síntesis de proteínas.",
+    "img": "Aminoácidos Ramificados (BCAA).jpg",
+    "rating": 5
+},
+{
+    "id": 6,
+    "name": "Glutamina en Polvo",
+    "price": 18.75,
+    "discount": 5,
+    "category": "in-sale",
+    "description": "Polvo de glutamina para mejorar la recuperación muscular y el sistema inmunológico.",
+    "img": "Glutamina en Polvo.webp",
+    "rating": 4
+},
+{
+    "id": 7,
+    "name": "Barra de Energía",
+    "price": 12.99,
+    "discount": 0,
+    "category": "best-seller",
+    "description": "Barra energética para proporcionar un impulso rápido de energía durante los entrenamientos o actividades físicas.",
+    "img": "Barra de Energía.jpg",
+    "rating": 3
+},
+{
+    "id": 8,
+    "name": "Suplemento de Zinc",
+    "price": 9.49,
+    "discount": 0,
+    "category": "best-seller",
+    "description": "Suplemento de zinc para apoyar la función inmunológica y la salud general.",
+    "img": "Suplemento de Zinc.jpg",
+    "rating": 4
+},
+{
+    "id": 9,
+    "name": "Caseína Micelar",
+    "price": 23.50,
+    "discount": 0,
+    "category": "best-seller",
+    "description": "Proteína de digestión lenta para mantener la saciedad y apoyar la recuperación nocturna.",
+    "img": "Caseína Micelar.jpg",
+    "rating": 4
+},
+{
+    "id": 10,
+    "name": "Óxido Nítrico",
+    "price": 29.99,
+    "discount": 0,
+    "category": "best-seller",
+    "description": "Suplemento de óxido nítrico para mejorar el flujo sanguíneo y la entrega de nutrientes durante el entrenamiento.",
+    "img": "Óxido Nítrico.jpg",
+    "rating": 5
+}
+]

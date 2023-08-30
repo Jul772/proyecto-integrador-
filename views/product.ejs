@@ -13,6 +13,7 @@
 		<%- include("./partials/header") %>
 	</header>
     <body>
+		<% for( i = 0 ; i < productos.length ; i++) { %>
 		<main class="manu-2">
 			<div class="container-img">
 				<img
@@ -181,6 +182,7 @@
 				</div>
 			</div>
 		</section>
+		<% } %>
 		<%- include("./partials/footer") %>
         <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
 	</body>

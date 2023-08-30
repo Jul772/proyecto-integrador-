@@ -43,8 +43,14 @@ main{
     border-radius: 10px;
     margin: 20px  0px;
 }
+.img-container{
+    display: block;
+    height: 180px;
+    align-items: center;
+}
 .img-producto{
-    width: 100%;
+    display: block;
+    max-width: 100%;
     border-radius: 5px;
 }
 .descripcion-container{
