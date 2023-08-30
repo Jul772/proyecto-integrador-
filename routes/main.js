@@ -3,18 +3,18 @@ const express = require('express')
 const router = express.Router()
 const multer = require("multer")
 
-const uploadFile = multer({ storage });
 
-const storage = multer.diskStorage({ 
-    destination: function (req, file, cb) { 
-       cb(null, '../public/images'); 
-    }, 
-    filename: function (req, file, cb) { 
-       cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  } 
+
+/* const storage = multer.diskStorage({ 
+   destination: function (req, file, cb) { 
+      cb(null, '../public/images'); 
+   }, 
+   filename: function (req, file, cb) { 
+      cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  } 
 })
-
-router.post('/register', uploadFile.single('avatar'), usersController.create);
-
+const uploadFile = multer({ storage });
+router.post('/register', homeController.create);
+ */
 router.get("/carrito",homeController.carrito)
 
 router.get("/producto",homeController.producto)
