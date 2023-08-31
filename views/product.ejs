@@ -17,30 +17,20 @@
 		<main class="manu-2">
 			<div class="container-img">
 				<img
-					src="https://static.thcdn.com/images/large/original//productimg/1600/1600/10961187-3924873399068777.jpg"
+					src="/images/products/<%= products.image%>"
 					alt="imagen-producto"
 				/>
 			</div>
 			<div class="container-info-product">
                 <div>
-                    <h1 class="titulo">Barquillo Proteico</h1>
-                    <h3 class="titulo">El capricho lleno de proteína más ligero, ideal para cualquier momento del día</h3>
+                    <h1 class="titulo"><%= products.discount%</h1>
+                    <h3 class="titulo"><%= products.name%></h3>
                 </div>
 				<div class="container-price">
-					<span class="titulo">$28.99</span>
+					<span class="titulo">$<%= products.price%></span>
 					<i class="fa-solid fa-angle-right"></i>
 				</div>
-
 				<div class="container-details-product">
-					<div class="form-group">
-						<label for="colour">sabor:</label>
-						<select name="colour" id="colour">
-							<option disabled selected value="">Escoge una opción</option>
-							<option value="vainilla">vainilla</option>
-							<option value="crema">crema de cacahuete</option>
-							<option value="chocolate">chocolate</option>
-						</select>
-					</div>
 					<div class="form-group">
 						<label for="size">Cantidad</label>
 						<select name="size" id="size">
@@ -81,10 +71,7 @@
 						<i class="fa-solid fa-chevron-down"></i>
 					</div>
 					<div class="text-description">
-						<p>
-                            Con 60 % menos azúcares y 20 % menos grasas que las alternativas de los supermercados, disfruta de un capricho lleno de proteína sin echar a perder tu duro trabajo.
-                            Creados con un relleno alto en proteínas, mezclamos leche y aislado de proteína de suero para dar respuesta a las plegarias de tus antojos.
-						</p>
+						<p><%= products.description%></p>
 					</div>
 				</div>
 

@@ -27,6 +27,6 @@ router.get("/login",homeController.login)
 
 router.get("/",homeController.home)
 
-router.get("/edit",homeController.edit)
+router.get("/edit/:id/",homeController.edit)
 
 module.exports = router
