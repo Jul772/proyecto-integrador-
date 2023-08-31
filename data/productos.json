@@ -1,12 +1,13 @@
 [
  {
   "id": 1,
-  "name": "Proteína Whey IUUPFA",
+  "name": "Proteína Whey",
   "price": "29.99",
   "discount": "0",
   "category": "in-sale",
-  "img": "whey-protein.jpg",
-  "rating": 2
+  "img": "1693445639238_img_.png",
+  "rating": 2,
+  "description": "as"
  },
  {
   "id": 2,
@@ -23,9 +24,10 @@
   "name": "Barras de Proteína 1",
   "price": "15.49",
   "discount": "0",
-  "category": "visited",
+  "category": "in-sale",
   "description": "Barras de proteína deliciosas y convenientes para satisfacer tus necesidades de proteínas en cualquier lugar.",
-  "rating": 3
+  "rating": 3,
+  "img": "1693445915594_img_.jpg"
  },
  {
   "id": 4,
@@ -96,5 +98,14 @@
   "description": "Suplemento de óxido nítrico para mejorar el flujo sanguíneo y la entrega de nutrientes durante el entrenamiento.",
   "img": "Óxido Nítrico.jpg",
   "rating": 5
+ },
+ {
+  "id": 11,
+  "name": "aFASDKJKBAFSJOKFASJNKBFA FUNBCUIONA A COIHNSDAOIDASNOPIJFSA",
+  "price": "124",
+  "discount": "12",
+  "category": "in-sale",
+  "description": "por favor",
+  "img": "1693447583607_img_.png"
  }
 ]

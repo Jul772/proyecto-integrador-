@@ -14,7 +14,7 @@
     <%- include("./partials/header") %>
     <div class="container">
         <h1>Creando producto<i>nombre</i></h1>
-        <form action="/create" method="POST">
+        <form action="/create" method="POST" enctype="multipart/form-data">
             <label for="name">Nombre del producto:</label>
             <input type="text" id="name" name="name" required>
             <label for="price">Precio:</label>
@@ -22,14 +22,14 @@
             <label for="discount">Descuento:</label>
             <input type="text" id="discount" name="discount" placeholder="Ej: 15">
             <label for="category">Categoría:</label>
-            <select name="categoria" id="categoria">
+            <select name="category" id="category">
                 <option value="">Elegí</option>
                 <option value="in-sale">En oferta</option>
-                <option value="visited" >Últimos agregados</option>
+                <option value="best-seller" >Últimos agregados</option>
             </select>
-            <label for="image">Imagen:</label>
-            <input type="file" id="image" name="image" required>
-            <label for="descripcion">Descripción:</label>
+            <label for="img-product">Imagen:</label>
+            <input type="file" id="img-product" name="img-product">
+            <label for="description">Descripción:</label>
             <textarea name="description" id="description" placeholder="Un buen producto :b"></textarea>
             <button type="submit">Guardar Cambios</button>
         </form>

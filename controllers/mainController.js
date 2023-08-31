@@ -36,6 +36,7 @@ const homeController = {
 				idProductoNuevo++
 			}
 		}
+        console.log(req.file)
 		idProductoNuevo = idProductoNuevo +1
 		let productoNuevo={
 			id:idProductoNuevo,
@@ -44,9 +45,8 @@ const homeController = {
 			discount:req.body.discount,
 			category:req.body.category,
 			description:req.body.description,
-			image:req.file.filename
+            img:req.file.filename
 		}
-        
 		products.push(productoNuevo)
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
 		res.redirect("/products")
