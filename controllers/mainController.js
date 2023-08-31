@@ -69,6 +69,20 @@ const homeController = {
 		products[indexToEdit].img=req.file.filename
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
 		res.redirect("/products")
+    },
+
+    delete: (req, res) => {
+        let idProductDelete = parseInt(req.params.id); // Convierte el id a número
+	
+		let productoIndex = products.findIndex(product => product.id === idProductDelete);
+	
+		// Si se encuentra el producto, lo eliminamos usando splice
+		products.splice(productoIndex, 1);
+	
+		// Escribe los cambios en el archivo JSON o en tu almacenamiento persistente.
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+
+		res.redirect('/');	
     }
 
 }

@@ -32,4 +32,6 @@ router.get("/",homeController.home)
 router.get("/edit/:id",homeController.edit)
 router.put("/edit/:id",upload.single('img-product'), homeController.update)
 
+router.delete('/delete/:id', homeController.delete)
+
 module.exports = router

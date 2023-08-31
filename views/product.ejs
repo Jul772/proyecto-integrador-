@@ -107,6 +107,9 @@
 					</div>
 				</div>
 				<a class="boton" href="/edit/<%=product.id%>">EDITAR</a>
+				<form action="/delete/<%= product.id %>?_method=DELETE" style="margin-top: 20px;" method="POST" style="display: inline-flex">
+					<button type="submit" class="action-button delete">ELIMINAR</button>
+				</form>
 			</div>
 		</main>
 
