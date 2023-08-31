@@ -1,59 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title></title> 
-	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
-	<link rel="stylesheet" href="/css/create.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles-product-edit.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/styles-header.css">
-</head>  
+    <title>Editar Producto</title>
+    
+</head>
 <body>
     <%- include("./partials/header") %>
-    <form action="formulario">
-        <h1>Formulario de creacion de producto</h1>
-
-					<div class="col-12 col-md-6">
-						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input">
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="price" class="form-label">Precio del producto:</label>
-						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="discount" class="form-label">Descuento:</label>
-						<input type="text" id="discount" name="discount" placeholder="Ej: 15" class="form-input">
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="category" class="form-label">Categoría:</label>
-						<select name="category" id="category" class="form-input">
-							<option value="">Elegí</option>
-							<option value="in-sale">En oferta</option>
-							<option value="visited">Últimos agregados</option>
-						</select>
-					</div>
-					<div class="col-12">
-						<label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-input"></textarea>
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="image" class="form-label">seleccione una imagen:</label>
-						<input type="file" id="image" name="image" placeholder="Ej: 15" class="form-input">
-					</div>
-					<div class="col-12">
-						<button type="submit" class="buy-now-button">Guardar producto</button>
-					</div>
-				</div>
-		</div>
-
-	</form>
-	<!-- /todos los productos -->
-
-	<!-- footer -->
-	<%- include("./partials/footer") %>
-	<!-- /footer -->
-</body>	
+    <div class="container">
+        <h1>Creando producto<i>nombre</i></h1>
+        <form action="/create" method="POST">
+            <label for="nombre">Nombre del producto:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" placeholder="Ej: 3000" step="0.01" required>
+            <label for="descuento">Descuento:</label>
+            <input type="text" id="descuento" name="descuento" placeholder="Ej: 15">
+            <label for="categoria">Categoría:</label>
+            <select name="categoria" id="categoria">
+                <option value="">Elegí</option>
+                <option value="in-sale">En oferta</option>
+                <option value="visited" >Últimos agregados</option>
+            </select>
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" required>
+            <label for="descripcion">Descripción:</label>
+            <textarea name="descripcion" id="descripcion" placeholder="Un buen producto :b"></textarea>
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
+</body>
+<%- include("./partials/footer") %>
 </html>

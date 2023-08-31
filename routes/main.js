@@ -16,6 +16,7 @@ const upload = multer({ storage:storage});
 //router.post('/register', upload.single('avatar'), usersController.create);
 
 router.get("/create",homeController.create)
+router.post('/create',homeController.store)
 
 router.get("/carrito",homeController.carrito)
 
@@ -28,5 +29,6 @@ router.get("/login",homeController.login)
 router.get("/",homeController.home)
 
 router.get("/edit/:id/",homeController.edit)
+router.put("/edit/:id/",homeController.edit)
 
 module.exports = router
