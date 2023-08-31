@@ -13,21 +13,22 @@
 		<%- include("./partials/header") %>
 	</header>
     <body>
-		<% for( i = 0 ; i < productos.length ; i++) { %>
 		<main class="manu-2">
 			<div class="container-img">
 				<img
-					src="/images/products/<%= products.image%>"
+					src="/images/products/<%=product.img%>"
 					alt="imagen-producto"
 				/>
 			</div>
 			<div class="container-info-product">
                 <div>
-                    <h1 class="titulo"><%= products.discount%</h1>
-                    <h3 class="titulo"><%= products.name%></h3>
+					<%if(product.discount!=0){%>
+                    <h1 class="titulo"><%= product.discount%></h1>
+					<%}%>
+                    <h3 class="titulo"><%= product.name%></h3>
                 </div>
 				<div class="container-price">
-					<span class="titulo">$<%= products.price%></span>
+					<span class="titulo">$<%= product.price%></span>
 					<i class="fa-solid fa-angle-right"></i>
 				</div>
 				<div class="container-details-product">
@@ -71,7 +72,7 @@
 						<i class="fa-solid fa-chevron-down"></i>
 					</div>
 					<div class="text-description">
-						<p><%= products.description%></p>
+						<p><%= product.description%></p>
 					</div>
 				</div>
 
@@ -105,6 +106,7 @@
 						<a href="#"><i class="fa-brands fa-pinterest" style="color: #ff4000;"></i></a>
 					</div>
 				</div>
+				<a class="boton" href="/edit/<%=product.id%>">EDITAR</a>
 			</div>
 		</main>
 
@@ -169,7 +171,6 @@
 				</div>
 			</div>
 		</section>
-		<% } %>
 		<%- include("./partials/footer") %>
         <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
 	</body>

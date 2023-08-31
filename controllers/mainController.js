@@ -1,10 +1,14 @@
 const express=require('express')
 const path=require('path')
 const fs = require('fs');
+const { Console } = require('console');
 const productsFilePath = path.join(__dirname, '../data/productos.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const homeController = {
+    index:function(req,res){
+        res.render('index',{products:products})
+    },
     home: function(req,res){
         res.render('home',{products:products})
     },
@@ -18,7 +22,8 @@ const homeController = {
         res.render("registro")
     },
     producto: (req,res) => {
-        res.render("product")
+        let product=products.find(producto => producto.id == req.params.id)
+        res.render("product",{product:product})
     },
     create: (req,res) => {
         res.render("create")
@@ -41,24 +46,27 @@ const homeController = {
 			description:req.body.description,
 			image:req.file.filename
 		}
+        
 		products.push(productoNuevo)
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
 		res.redirect("/products")
     },
     edit: (req,res) => {
-        res.render("product-edit")
+        let productToEdit=products.find(producto => producto.id == req.params.id)
+		res.render('product-edit',{productToEdit:productToEdit})
     },
     update:(req,res)=>{
         let indexToEdit=products.findIndex(producto => producto.id == req.params.id)
 		if (!req.file|| !req.file.mimetype.startsWith('image/')){
-			res.redirect("/products/"+products[indexToEdit].id)
+			res.redirect("/edit/"+products[indexToEdit].id)
+            return
 		}
 		products[indexToEdit].name=req.body.name
 		products[indexToEdit].price=req.body.price
 		products[indexToEdit].category=req.body.category
 		products[indexToEdit].description=req.body.description
 		products[indexToEdit].discount=req.body.discount
-		products[indexToEdit].image=req.file.filename
+		products[indexToEdit].img=req.file.filename
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
 		res.redirect("/products")
     }
