@@ -80,13 +80,12 @@
   "rating": 4
  },
  {
-  "id": 10,
-  "name": "Óxido Nítrico",
-  "price": 29.99,
-  "discount": 0,
-  "category": "best-seller",
-  "description": "Suplemento de óxido nítrico para mejorar el flujo sanguíneo y la entrega de nutrientes durante el entrenamiento.",
-  "img": "Óxido Nítrico.jpg",
-  "rating": 5
+  "id": 9,
+  "name": "Oxido Nitrico",
+  "price": "2200",
+  "discount": "10",
+  "category": "in-sale",
+  "description": "",
+  "img": "1693871768294_img_.jpg"
  }
 ]

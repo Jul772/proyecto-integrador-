@@ -5,23 +5,14 @@ const { Console } = require('console');
 const productsFilePath = path.join(__dirname, '../data/productos.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-const homeController = {
+const productController = {
     index:function(req,res){
         res.render('index',{products:products})
-    },
-    home: function(req,res){
-        res.render('home',{products:products})
-    },
-    login: (req,res) => {
-        res.render("login")
     },
     carrito: (req,res) => {
         res.render("carrito")
     },
-    registro: (req,res) => {
-        res.render("registro")
-    },
-    producto: (req,res) => {
+    detail: (req,res) => {
         let product=products.find(producto => producto.id == req.params.id)
         res.render("product",{product:product})
     },
@@ -32,12 +23,11 @@ const homeController = {
         let idProductoNuevo = 0
 
 		for(i=0;i<products.length;i++ ){
-			if(idProductoNuevo < products[i].id){
+			if(idProductoNuevo <= products[i].id){
 				idProductoNuevo++
 			}
 		}
-        console.log(req.file)
-		idProductoNuevo = idProductoNuevo +1
+		idProductoNuevo++
 		let productoNuevo={
 			id:idProductoNuevo,
 			name:req.body.name,
@@ -49,7 +39,7 @@ const homeController = {
 		}
 		products.push(productoNuevo)
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		res.redirect("/products")
+		res.redirect("/")
     },
     edit: (req,res) => {
         let productToEdit=products.find(producto => producto.id == req.params.id)
@@ -58,7 +48,7 @@ const homeController = {
     update:(req,res)=>{
         let indexToEdit=products.findIndex(producto => producto.id == req.params.id)
 		if (!req.file|| !req.file.mimetype.startsWith('image/')){
-			res.redirect("/edit/"+products[indexToEdit].id)
+			res.redirect("/products/edit/"+products[indexToEdit].id)
             return
 		}
 		products[indexToEdit].name=req.body.name
@@ -68,7 +58,7 @@ const homeController = {
 		products[indexToEdit].discount=req.body.discount
 		products[indexToEdit].img=req.file.filename
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		res.redirect("/products")
+		res.redirect("/")
     },
 
     delete: (req, res) => {
@@ -86,4 +76,4 @@ const homeController = {
     }
 
 }
-module.exports = homeController
+module.exports = productController

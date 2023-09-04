@@ -16,7 +16,7 @@
         <h2>Mas vendidos</h2>
         <section class="articulos-mas-vendidos">
             <% for (let i=0; i<products.length; i++){%>
-            <a href="/product/<%=products[i].id%>" class="articulo">
+            <a href="/products/detail/<%=products[i].id%>" class="articulo">
                 <div class="img-container">
                     <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">
                 </div>

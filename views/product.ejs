@@ -107,8 +107,8 @@
 					</div>
 				</div>
 				<div class="button-container">
-				<a class="boton" href="/edit/<%=product.id%>">EDITAR</a>
-				<form action="/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+				<a class="boton" href="/products/edit/<%=product.id%>">EDITAR</a>
+				<form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
 					<button type="submit" class="delete-button">ELIMINAR</button>
 				</div>
 				</form>
