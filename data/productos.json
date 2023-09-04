@@ -50,16 +50,6 @@
   "rating": 5
  },
  {
-  "id": 6,
-  "name": "Glutamina en Polvo",
-  "price": 18.75,
-  "discount": 5,
-  "category": "in-sale",
-  "description": "Polvo de glutamina para mejorar la recuperación muscular y el sistema inmunológico.",
-  "img": "Glutamina en Polvo.webp",
-  "rating": 4
- },
- {
   "id": 7,
   "name": "Barra de Energía",
   "price": 12.99,
@@ -98,14 +88,5 @@
   "description": "Suplemento de óxido nítrico para mejorar el flujo sanguíneo y la entrega de nutrientes durante el entrenamiento.",
   "img": "Óxido Nítrico.jpg",
   "rating": 5
- },
- {
-  "id": 11,
-  "name": "aFASDKJKBAFSJOKFASJNKBFA FUNBCUIONA A COIHNSDAOIDASNOPIJFSA",
-  "price": "124",
-  "discount": "12",
-  "category": "in-sale",
-  "description": "por favor",
-  "img": "1693447583607_img_.png"
  }
 ]

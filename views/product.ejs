@@ -26,7 +26,7 @@
                     <h1 class="titulo"><%= product.discount%></h1>
 					<%}%>
                     <h3 class="titulo"><%= product.name%></h3>
-                </div>da0a001
+                </div>
 				<div class="container-price">
 					<span class="titulo">$<%= product.price%></span>
 					<i class="fa-solid fa-angle-right"></i>
@@ -106,9 +106,11 @@
 						<a href="#"><i class="fa-brands fa-pinterest" style="color: #ff4000;"></i></a>
 					</div>
 				</div>
+				<div class="button-container">
 				<a class="boton" href="/edit/<%=product.id%>">EDITAR</a>
-				<form action="/delete/<%= product.id %>?_method=DELETE" style="margin-top: 20px;" method="POST" style="display: inline-flex">
-					<button type="submit" class="action-button delete">ELIMINAR</button>
+				<form action="/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+					<button type="submit" class="delete-button">ELIMINAR</button>
+				</div>
 				</form>
 			</div>
 		</main>
