@@ -20,16 +20,24 @@ const productController = {
         res.render("create")
     },
     store:(req,res)=>{
-        let idProductoNuevo = 0
+        // let idProductoNuevo = 0
 
-		for(i=0;i<products.length;i++ ){
-			if(idProductoNuevo <= products[i].id){
-				idProductoNuevo++
+		// for(i=0;i<products.length;i++ ){
+		// 	if(idProductoNuevo <= products[i].id){
+		// 		idProductoNuevo++
+		// 	}
+		// }
+		// idProductoNuevo++
+
+		let ultimoId = 0;
+		products.forEach((product) => {
+			if (product.id > ultimoId) {
+				ultimoId = product.id;
 			}
-		}
-		idProductoNuevo++
+		});
+
 		let productoNuevo={
-			id:idProductoNuevo,
+			id:ultimoId + 1,
 			name:req.body.name,
 			price:req.body.price,
 			discount:req.body.discount,
