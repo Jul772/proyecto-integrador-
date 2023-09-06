@@ -5,18 +5,18 @@
   "price": "29.99",
   "discount": "0",
   "category": "in-sale",
-  "img": "1693445639238_img_.png",
+  "img": "1694041508609_img_.png",
   "rating": 2,
   "description": "as"
  },
  {
   "id": 2,
   "name": "Creatina Monohidratada",
-  "price": 19.99,
-  "discount": 10,
+  "price": "19.99",
+  "discount": "10",
   "category": "in-sale",
   "description": "Suplemento de creatina en polvo para mejorar la fuerza y la resistencia muscular.",
-  "img": "Creatina Monohidratada.jpg",
+  "img": "1694041441600_img_.png",
   "rating": 4
  },
  {
