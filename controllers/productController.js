@@ -38,7 +38,7 @@ const productController = {
 		}
 		products.push(productoNuevo)
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		res.redirect("/")
+		res.redirect("/products/index")
     },
     edit: (req,res) => {
         let productToEdit=products.find(producto => producto.id == req.params.id)
@@ -57,7 +57,7 @@ const productController = {
 		products[indexToEdit].discount=req.body.discount
 		products[indexToEdit].img=req.file.filename
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		res.redirect("/")
+		res.redirect("/products/index")
     },
 
     delete: (req, res) => {
@@ -71,7 +71,7 @@ const productController = {
 		// Escribe los cambios en el archivo JSON o en tu almacenamiento persistente.
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 
-		res.redirect('/');	
+		res.redirect('/products/index');	
     }
 
 }
