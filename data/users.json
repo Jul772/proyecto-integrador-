@@ -14,12 +14,12 @@
   "id": 2,
   "firstName": "Ivan",
   "lastName": "Martinez",
-  "username": "IvanGamer777",
+  "username": "remier275",
   "email": "ivan@gmail.com",
   "password": "2310",
   "category": "admin",
   "image": "ivan.png",
-  "fechaNacimiento": ""
+  "fechaNacimiento": "2005-09-1"
  },
  {
   "id": 3,
