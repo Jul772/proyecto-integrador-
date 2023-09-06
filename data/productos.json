@@ -27,7 +27,7 @@
   "category": "in-sale",
   "description": "Barras de proteína deliciosas y convenientes para satisfacer tus necesidades de proteínas en cualquier lugar.",
   "rating": 3,
-  "img": "1693445915594_img_.jpg"
+  "img": "1694042897938_img_.jpg"
  },
  {
   "id": 4,
@@ -61,7 +61,7 @@
  },
  {
   "id": 8,
-  "name": "Suplemento de Zinc editado",
+  "name": "Suplemento de Zinc",
   "price": "9.49",
   "discount": "0",
   "category": "best-seller",
