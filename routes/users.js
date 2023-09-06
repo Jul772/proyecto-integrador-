@@ -18,6 +18,6 @@ router.get("/login",usersController.login)
 
 router.get("/registro",usersController.registro)
 
-router.post('/registro', usersController.saveUser)
+router.post('/registro',upload.single('avatar'), usersController.saveUser)
 
 module.exports = router

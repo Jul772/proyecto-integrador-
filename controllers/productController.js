@@ -20,15 +20,6 @@ const productController = {
         res.render("create")
     },
     store:(req,res)=>{
-        // let idProductoNuevo = 0
-
-		// for(i=0;i<products.length;i++ ){
-		// 	if(idProductoNuevo <= products[i].id){
-		// 		idProductoNuevo++
-		// 	}
-		// }
-		// idProductoNuevo++
-
 		let ultimoId = 0;
 		products.forEach((product) => {
 			if (product.id > ultimoId) {
@@ -43,11 +34,14 @@ const productController = {
 			discount:req.body.discount,
 			category:req.body.category,
 			description:req.body.description,
-            img:req.file.filename
+            
+		}
+		if(req.file){
+			productoNuevo.img=req.file.filename
 		}
 		products.push(productoNuevo)
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		res.redirect("/")
+		res.redirect("/products/index")
     },
     edit: (req,res) => {
         let productToEdit=products.find(producto => producto.id == req.params.id)
@@ -68,7 +62,7 @@ const productController = {
 
 		// products[indexToEdit].img=req.file.filename
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		res.redirect("/")
+		res.redirect("/products/index")
     },
 
     delete: (req, res) => {
@@ -82,7 +76,7 @@ const productController = {
 		// Escribe los cambios en el archivo JSON o en tu almacenamiento persistente.
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 
-		res.redirect('/');	
+		res.redirect('/products/index');	
     }
 
 }

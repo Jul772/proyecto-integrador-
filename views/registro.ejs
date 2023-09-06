@@ -10,7 +10,7 @@
 </head>  
 <body>
     <%- include("./partials/header") %>
-<form class="formulario" action="/users/registro" method="post" >
+<form class="formulario" action="/users/registro" method="POST" enctype="multipart/form-data">
     <h1>Regístrate</h1>
     <div class="contenedor">
         <div class="input-contenedor">
@@ -38,6 +38,10 @@
         <div class="input-contenedor">
             <i class="fas fa-calendar-alt icon"></i>
             <input type="date" name="fechaNacimiento">
+        </div>
+        <div class="input-contenedor">
+            <label for="avatar">Elige tu avatar</label>
+            <input type="file" name="avatar" id="avatar">
         </div>
         <input type="submit" value="Regístrate" class="button">
         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
