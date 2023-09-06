@@ -52,11 +52,11 @@
  {
   "id": 7,
   "name": "Barra de Energía",
-  "price": 12.99,
-  "discount": 0,
+  "price": "12.99",
+  "discount": "0",
   "category": "best-seller",
   "description": "Barra energética para proporcionar un impulso rápido de energía durante los entrenamientos o actividades físicas.",
-  "img": "Barra de Energía.jpg",
+  "img": "1694040916720_img_.jpg",
   "rating": 3
  },
  {
@@ -64,7 +64,7 @@
   "name": "Suplemento de Zinc",
   "price": 9.49,
   "discount": 0,
-  "category": "best-seller",
+  "category": "st-selbeler",
   "description": "Suplemento de zinc para apoyar la función inmunológica y la salud general.",
   "img": "Suplemento de Zinc.jpg",
   "rating": 4
