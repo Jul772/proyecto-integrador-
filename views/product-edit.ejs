@@ -24,7 +24,7 @@
             <label for="category">Categoría:</label>
             <select name="category" id="category">
                 <option value="in-sale"<% if (productToEdit.category == 'in-sale') { %>selected<% } %>>En oferta</option>
-				<option value="visited"<% if (productToEdit.category === 'best-seller') { %>selected<% } %>>Últimos agregados</option>
+				<option value="best-seller"<% if (productToEdit.category === 'best-seller') { %>selected<% } %>>Últimos agregados</option>
             </select>
             <label for="img-product">Imagen:</label>
             <input type="file" id="img-product" name="img-product">
