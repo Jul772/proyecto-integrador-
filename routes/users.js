@@ -18,4 +18,6 @@ router.get("/login",usersController.login)
 
 router.get("/registro",usersController.registro)
 
+router.post('/registro', usersController.saveUser)
+
 module.exports = router
