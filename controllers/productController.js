@@ -34,7 +34,7 @@ const productController = {
 			discount:req.body.discount,
 			category:req.body.category,
 			description:req.body.description,
-            img:req.file.filename
+            img:req.file.filename,
 		}
 		products.push(productoNuevo)
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))

@@ -25,11 +25,11 @@
   "id": 3,
   "firstName": "Leonel",
   "lastName": "Messi",
-  "username": "ElCrack",
-  "email": "messi@messi.com",
-  "password": "messi",
-  "category": "admin",
-  "image": "",
-  "fechaNacimiento": "1987-06-27"
+  "username": "El crack",
+  "email": "samuelagustin332008@gmail.com",
+  "password": "231",
+  "category": "cliente",
+  "image": "1694042029644_img_.avif",
+  "fechaNacimiento": "2023-09-12"
  }
 ]

@@ -61,12 +61,12 @@
  },
  {
   "id": 8,
-  "name": "Suplemento de Zinc",
-  "price": 9.49,
-  "discount": 0,
+  "name": "Suplemento de Zinc editado",
+  "price": "9.49",
+  "discount": "0",
   "category": "best-seller",
   "description": "Suplemento de zinc para apoyar la función inmunológica y la salud general.",
-  "img": "Suplemento de Zinc.jpg",
+  "img": "1694042260582_img_.jpg",
   "rating": 4
  },
  {

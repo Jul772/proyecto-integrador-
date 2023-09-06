@@ -46,9 +46,14 @@ h2{
     justify-content: space-around;
 }
 .logo{
-    width: 20%;
-    height: auto;
+    width: 40%;
+    padding: 20px;
 }
+
+#logo{
+    max-width:100%
+}
+
 .busqueda-texto{
     display: flex;
     width: 60%;

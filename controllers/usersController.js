@@ -21,8 +21,6 @@ const usersController={
 				ultimoId = user.id;
 			}
 		});
-
-        // Nose si los campos vacios irian o no
         let newUser = {
             id: ultimoId + 1,
             firstName: req.body.firstName,
@@ -31,7 +29,7 @@ const usersController={
             email: req.body.email,
             password: req.body.password,
             category: "cliente",
-            image: "",
+            image: req.file.filename,
             fechaNacimiento: req.body.fechaNacimiento
         }
 
