@@ -20,6 +20,15 @@ const productController = {
         res.render("create")
     },
     store:(req,res)=>{
+        // let idProductoNuevo = 0
+
+		// for(i=0;i<products.length;i++ ){
+		// 	if(idProductoNuevo <= products[i].id){
+		// 		idProductoNuevo++
+		// 	}
+		// }
+		// idProductoNuevo++
+
 		let ultimoId = 0;
 		products.forEach((product) => {
 			if (product.id > ultimoId) {
@@ -38,7 +47,7 @@ const productController = {
 		}
 		products.push(productoNuevo)
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		res.redirect("/products/index")
+		res.redirect("/")
     },
     edit: (req,res) => {
         let productToEdit=products.find(producto => producto.id == req.params.id)
@@ -46,18 +55,20 @@ const productController = {
     },
     update:(req,res)=>{
         let indexToEdit=products.findIndex(producto => producto.id == req.params.id)
-		if (!req.file|| !req.file.mimetype.startsWith('image/')){
-			res.redirect("/products/edit/"+products[indexToEdit].id)
-            return
-		}
+		// if (!req.file|| !req.file.mimetype.startsWith('image/')){
+		// 	res.redirect("/products/edit/"+products[indexToEdit].id)
+        //     return
+		// }
 		products[indexToEdit].name=req.body.name
 		products[indexToEdit].price=req.body.price
 		products[indexToEdit].category=req.body.category
 		products[indexToEdit].description=req.body.description
 		products[indexToEdit].discount=req.body.discount
-		products[indexToEdit].img=req.file.filename
+		products[indexToEdit].img = req.file ? req.file.filename : products[indexToEdit].img;
+
+		// products[indexToEdit].img=req.file.filename
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		res.redirect("/products/index")
+		res.redirect("/")
     },
 
     delete: (req, res) => {
@@ -71,7 +82,7 @@ const productController = {
 		// Escribe los cambios en el archivo JSON o en tu almacenamiento persistente.
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 
-		res.redirect('/products/index');	
+		res.redirect('/');	
     }
 
 }
