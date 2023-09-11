@@ -4,6 +4,9 @@ const fs = require('fs');
 const { Console } = require('console');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+const {check,body,validationResult}=require('express-validator')
+
+
 
 const usersController={
     login: (req,res) => {
@@ -12,6 +15,7 @@ const usersController={
     // Muestra la vista del registro
     registro: (req,res) => {
         res.render("registro")
+        let errors=validationResult(req)
     },
     // Cargar datos de usuario al json
     saveUser: (req, res) => {

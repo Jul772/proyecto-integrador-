@@ -9,7 +9,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'))
 
-app.listen(5000,() => (console.log("servidor abierto en el puerto 5000")))
+app.listen(5000,() => (console.log(`servidor abierto en http://localhost:5000`)))
 
 app.set('view engine','ejs')
 
