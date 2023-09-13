@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
       cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  } 
 })
 
-let validatorRegister = [
+let productValidator = [
    check("name")
       .notEmpty().withMessage("Debes completar el nombre")
       .isLength({min:5}).withMessage("el nombre debe tener almenos 5 caracteres"),
@@ -30,7 +30,7 @@ const upload = multer({storage});
 router.get('/index',productController.index)
 
 router.get("/create",productController.create)
-router.post('/create',validatorRegister,upload.single('img-product'),productController.store)
+router.post('/create',productValidator,upload.single('img-product'),productController.store)
 
 router.get("/carrito",productController.carrito)
 
