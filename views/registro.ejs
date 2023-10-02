@@ -15,20 +15,32 @@
     <div class="contenedor">
         <div class="input-contenedor">
             <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="Nombre" name="firstName">
+            <input type="text" placeholder="Nombre" name="firstName" value="<%=locals.old&&old.firstName%>">
         </div>
+        <%if(locals.errors&&errors.firstName.msg){%>
+        <div class="errors"><%=errors.firstName.msg%></div>
+        <%}%>
         <div class="input-contenedor">
             <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="Apellido" name="lastName">
+            <input type="text" placeholder="Apellido" name="lastName" value="<%=locals.old&&old.lastName%>">
         </div>
+        <%if(locals.errors&&errors){%>
+            <div class="errors"><%=errors.lastName.msg%></div>
+            <%}%>
         <div class="input-contenedor">
         <i class="fas fa-user icon"></i>
-        <input type="text" placeholder="Nombre de Usuario" name="username">
+        <input type="text" placeholder="Nombre de Usuario" name="username" value="<%=locals.old&&old.username%>">
         </div>
+        <%if(locals.errors&&errors){%>
+            <div class="errors"><%=errors.username.msg%></div>
+            <%}%>
         <div class="input-contenedor">
         <i class="fas fa-envelope icon"></i>
-        <input type="text" name="email" placeholder="Correo Electrónico">
+        <input type="text" name="email" placeholder="Correo Electrónico" value="<%=locals.old&&old.email%>">
         </div>
+        <%if(locals.errors&&errors){%>
+            <div class="errors"><%=errors.email.msg%></div>
+            <%}%>
         
         <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
@@ -37,7 +49,7 @@
     
         <div class="input-contenedor">
             <i class="fas fa-calendar-alt icon"></i>
-            <input type="date" name="fechaNacimiento">
+            <input type="date" name="fechaNacimiento" value="<%=locals.old&&old.fechaNacimiento%>">
         </div>
         <div class="input-contenedor">
             <label for="avatar">Elige tu avatar</label>

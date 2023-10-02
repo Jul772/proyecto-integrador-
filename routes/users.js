@@ -27,7 +27,8 @@ const usersValidator=[
     check('password').notEmpty().withMessage('Agrega una contraseña').bail()
     .isLength({min:6}).withMessage('Tu contraseña debe ser mas larga'),
 
-    check('fechaNacimiento').notEmpty().withMessage('Agrega tu fecha de nacimiento')
+    check('fechaNacimiento').notEmpty().withMessage('Agrega tu fecha de nacimiento'),
+
 ]
 
 const upload = multer({storage});

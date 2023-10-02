@@ -67,6 +67,15 @@ h2{
     padding: 10px 0px;
     text-align: center;
 }
+.errors{
+    display: block;
+    background-color: rgb(255, 135, 135);
+    border-radius: 5px;
+    border: 1px red solid;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+}
 .navegacion{
     display: none;
     width: 100%;

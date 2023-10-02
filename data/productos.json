@@ -87,5 +87,14 @@
   "category": "in-sale",
   "description": "",
   "img": "1693871768294_img_.jpg"
+ },
+ {
+  "id": 11,
+  "name": "",
+  "price": "21353",
+  "discount": "12",
+  "category": "best-seller",
+  "description": "Bueno",
+  "img": "1696288492421_img_.png"
  }
 ]

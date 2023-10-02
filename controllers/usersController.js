@@ -14,17 +14,22 @@ const usersController={
     },
     // Muestra la vista del registro
     registro: (req,res) => {
+        
         res.render("registro")
-        let errors=validationResult(req)
+        
+        
     },
     // Cargar datos de usuario al json
     saveUser: (req, res) => {
-        let ultimoId = 0;
+        let errors=validationResult(req)
+        if(errors.isEmpty()){
+            let ultimoId = 0;
 		users.forEach((user) => {
 			if (user.id > ultimoId) {
 				ultimoId = user.id;
 			}
 		});
+
         let newUser = {
             id: ultimoId + 1,
             firstName: req.body.firstName,
@@ -39,7 +44,10 @@ const usersController={
 
         users.push(newUser)
 		fs.writeFileSync(usersFilePath,JSON.stringify(users,null," "))
-		res.redirect("/")
+        } else {
+            res.render('registro',{errors:errors.mapped(),old:req.body})
+        }
+        res.redirect("/")
     }
 }
 
