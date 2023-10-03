@@ -4,7 +4,7 @@ const fs = require('fs');
 const { Console } = require('console');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-const {check,body,validationResult}=require('express-validator')
+const {validationResult}=require('express-validator')
 
 
 
@@ -22,7 +22,10 @@ const usersController={
     // Cargar datos de usuario al json
     saveUser: (req, res) => {
         let errors=validationResult(req)
-        if(errors.isEmpty()){
+        res.send(errors.mapped().firstName.msg) //Probando la variable errors
+
+        //Código para poner cuando funcione :(
+        /* if(errors.isEmpty()){
             let ultimoId = 0;
 		users.forEach((user) => {
 			if (user.id > ultimoId) {
@@ -44,10 +47,11 @@ const usersController={
 
         users.push(newUser)
 		fs.writeFileSync(usersFilePath,JSON.stringify(users,null," "))
+        res.redirect("/")
         } else {
             res.render('registro',{errors:errors.mapped(),old:req.body})
-        }
-        res.redirect("/")
+        } */
+        
     }
 }
 

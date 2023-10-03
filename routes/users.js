@@ -3,7 +3,7 @@ const path=require('path')
 const express = require('express')
 const router = express.Router()
 const multer = require("multer")
-const {check,body,validationResult}=require('express-validator')
+const {body}=require('express-validator')
 
 const storage = multer.diskStorage({ 
 destination: function (req, file, cb) {
@@ -14,20 +14,20 @@ filename: function (req, file, cb) {
 })
 
 const usersValidator=[
-    check('firstName').notEmpty().withMessage('Debes agregar un nombre').bail(),
+    body('firstName').notEmpty().withMessage('Debes agregar un nombre'),
 
-    check('lastName').notEmpty().withMessage('Debes agregar un apellido').bail(),
+    body('lastName').notEmpty().withMessage('Debes agregar un apellido'),
 
-    check('username').notEmpty().withMessage('Debes agregar un nombre de usuario').bail()
+    body('username').notEmpty().withMessage('Debes agregar un nombre de usuario').bail()
     .isLength({min:4}).withMessage('Tu nombre de usuario debe ser mas largo'),
 
-    check('email').notEmpty().withMessage('Agrega un email por favor').bail()
+    body('email').notEmpty().withMessage('Agrega un email por favor').bail()
     .isEmail().withMessage('Debes completar con un email valido'),
 
-    check('password').notEmpty().withMessage('Agrega una contraseña').bail()
+    body('password').notEmpty().withMessage('Agrega una contraseña').bail()
     .isLength({min:6}).withMessage('Tu contraseña debe ser mas larga'),
 
-    check('fechaNacimiento').notEmpty().withMessage('Agrega tu fecha de nacimiento'),
+    body('fechaNacimiento').notEmpty().withMessage('Agrega tu fecha de nacimiento'),
 
 ]
 

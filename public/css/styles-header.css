@@ -102,3 +102,9 @@ h2{
         width: 50%;
     }
 }
+#footer{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
