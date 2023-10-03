@@ -5,7 +5,7 @@
   "price": "29.99",
   "discount": "0",
   "category": "in-sale",
-  "img": "1694041508609_img_.png",
+  "img": "1696369777008_img_.jpg",
   "rating": 2,
   "description": "as"
  },
@@ -16,7 +16,7 @@
   "discount": "10",
   "category": "in-sale",
   "description": "Suplemento de creatina en polvo para mejorar la fuerza y la resistencia muscular.",
-  "img": "1694043800611_img_.png",
+  "img": "1696369749126_img_.jpg",
   "rating": 4
  },
  {
@@ -27,7 +27,7 @@
   "category": "in-sale",
   "description": "Barras de proteína deliciosas y convenientes para satisfacer tus necesidades de proteínas en cualquier lugar.",
   "rating": 3,
-  "img": "1694042897938_img_.jpg"
+  "img": "1696369737655_img_.jpg"
  },
  {
   "id": 4,
@@ -56,7 +56,7 @@
   "discount": "0",
   "category": "best-seller",
   "description": "Barra energética para proporcionar un impulso rápido de energía durante los entrenamientos o actividades físicas.",
-  "img": "1694040916720_img_.jpg",
+  "img": "1696369711159_img_.jpg",
   "rating": 3
  },
  {
@@ -66,7 +66,7 @@
   "discount": "0",
   "category": "best-seller",
   "description": "Suplemento de zinc para apoyar la función inmunológica y la salud general.",
-  "img": "1694042260582_img_.jpg",
+  "img": "1696369723673_img_.jpg",
   "rating": 4
  },
  {
@@ -86,15 +86,6 @@
   "discount": "10",
   "category": "in-sale",
   "description": "",
-  "img": "1693871768294_img_.jpg"
- },
- {
-  "id": 11,
-  "name": "",
-  "price": "21353",
-  "discount": "12",
-  "category": "best-seller",
-  "description": "Bueno",
-  "img": "1696288492421_img_.png"
+  "img": "1696369787928_img_.jpg"
  }
 ]
