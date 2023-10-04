@@ -51,7 +51,10 @@ const usersController={
         } else {
             res.render('registro',{errors:errors.mapped(),old:req.body})
         } */
-        
+    },
+    user: (req,res) => {
+        let user=users.find(user => users.id == req.params.id)
+        res.render("users", {user:user})
     }
 }
 

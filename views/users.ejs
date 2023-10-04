@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/users.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles-header.css">
+    <title>Mi Perfil</title>
+</head>
+<body>
+
+    <%- include("./partials/header") %>
+
+    <div class="profile-container">
+        <img src="/images/users/<%=user.image%>" alt="Fotito" class="profile-image">
+        <div class="profile-info">
+            <h2><%=user.username%></h2>
+            <p>nombe:<%=user.firstName%></p>
+            <p>apellido:<%=user.lastName%></p>
+            <p>Correo Electrónico:<%=user.email%></p>
+        </div>
+    </div>
+
+</body>
+    <%- include("./partials/footer") %>
+</html>
