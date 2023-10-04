@@ -5,12 +5,31 @@ const { Console } = require('console');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const {validationResult}=require('express-validator')
+const bcrypt = require('bcrypt')
+
 
 
 
 const usersController={
-    login: (req,res) => {
-        res.render("login")
+    login: async (req,res) => {
+        const { user, password } = req.body;
+
+    if (user === "admin" && password === "12345") {
+      try {
+        const passwordHash = await bcrypt.hash(password, 8);
+        res.json({
+          message: "Autenticación exitosa",
+          passwordHash: passwordHash
+        });
+      } catch (error) {
+        res.status(500).json({ message: "Error al hashear la contraseña" });
+      }
+    } else {
+      res.json({ message: "Ingrese correctamente sus credenciales" });
+    }
+  
+        //res.render("login")
+       
     },
     // Muestra la vista del registro
     registro: (req,res) => {
