@@ -11,25 +11,10 @@ const bcrypt = require('bcrypt')
 
 
 const usersController={
-    login: async (req,res) => {
-        const { user, password } = req.body;
+    login:  (req,res) => {
+      res.render("login")
 
-    if (user === "admin" && password === "12345") {
-      try {
-        const passwordHash = await bcrypt.hash(password, 8);
-        res.json({
-          message: "Autenticación exitosa",
-          passwordHash: passwordHash
-        });
-      } catch (error) {
-        res.status(500).json({ message: "Error al hashear la contraseña" });
-      }
-    } else {
-      res.json({ message: "Ingrese correctamente sus credenciales" });
-    }
-  
-        //res.render("login")
-       
+
     },
     // Muestra la vista del registro
     registro: (req,res) => {
