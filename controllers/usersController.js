@@ -5,12 +5,16 @@ const { Console } = require('console');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const {validationResult}=require('express-validator')
+const bcrypt = require('bcrypt')
+
 
 
 
 const usersController={
-    login: (req,res) => {
-        res.render("login")
+    login:  (req,res) => {
+      res.render("login")
+
+
     },
     // Muestra la vista del registro
     registro: (req,res) => {
