@@ -5,19 +5,48 @@ const { Console } = require('console');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const {validationResult}=require('express-validator')
-
+const cookieParser = require('cookie-parser')
+const bcrypt = require ("bcryptjs")
 
 
 const usersController={
     login: (req,res) => {
         res.render("login")
     },
+    procesarlogin: (req,res) => {
+        let errors= validationResult(req)
+        if(error.isEmpty()){
+            let usersJSON = fs.readFileSync("users.json",{errors : errors.errors})
+            let users
+            if (usersJSON == ""){
+                users=[]
+            } else {
+                users = JSON.parse(usersJSON)
+            }
+            let usuariologin
+            for (let i = 0; i < users.length; i++){
+                if (users[i].email == req.body.email ) {
+                    if (bcrypt.compareSync(req.body.password,users[i].password)){
+                        let usuariologin= users[i]
+                        break;
+                    }
+                }
+
+            }
+            if (usuariologin == undefined) {
+                return res.render("login",{errors : [
+                    {msg:"credenciales invalidas"}
+                ]})
+            }
+            req.session.usuarioLogeado = usuariologin
+            res.render("home")
+        } else {
+            return res.render("login",{errors : errors.errors})
+        }
+    },
     // Muestra la vista del registro
     registro: (req,res) => {
-        
         res.render("registro")
-        
-        
     },
     // Cargar datos de usuario al json
     saveUser: (req, res) => {

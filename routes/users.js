@@ -47,6 +47,8 @@ const upload = multer({storage});
 
 router.get("/login",usersController.login)
 
+router.post("/login",usersValidator,usersController.procesarlogin)
+
 router.get("/registro",usersController.registro)
 
 router.post('/registro',usersValidator,upload.single('avatar'), usersController.saveUser)
