@@ -15,21 +15,62 @@
     <div class="container">
         <h1>Estás editando: <i><%=productToEdit.name%></i></h1>
         <form action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="post" enctype="multipart/form-data">
+
+
             <label for="name">Nombre del producto:</label>
-            <input type="text" id="name" name="name" value="<%= productToEdit.name %>" required>
+            <input type="text" id="name" name="name" 
+            <%if(locals.old&&old.name){%>
+                value="<%=old.name%>"
+                <%}else{%>
+            value="<%= productToEdit.name %>">
+            <%}%>
+            <%if(locals.errors&&errors.name.msg){%>>
+                <div class="errors"><%=errors.name.msg%></div>
+                <%}%>
+
+
             <label for="price">Precio:</label>
-            <input type="number" id="price" name="price" value="<%= productToEdit.price %>" step="0.01" required>
+            <input type="number" id="price" name="price" 
+            <%if(locals.old&&old.price){%>
+                value="<%=old.price%>"
+                <%}else{%>
+            value="<%= productToEdit.price %>"<%}%>
+            step="0.01">
+            <%if(locals.errors&&errors.price.msg){%>
+                <div class="errors"><%=errors.price.msg%></div>
+                <%}%>
+            
+
             <label for="discount">Descuento:</label>
-            <input type="text" id="discount" name="discount" value="<%= productToEdit.discount %>">
+            <input type="text" id="discount" name="discount" 
+            <%if(locals.old&&old.discount){%>
+                value="<%=old.discount%>"
+                <%}else{%>
+            value="<%= productToEdit.discount %>"<%}%>>
+            <%if(locals.errors&&errors.discount){%>
+                <div class="errors"><%=errors.discount.msg%></div>
+                <%}%>
+
+
             <label for="category">Categoría:</label>
             <select name="category" id="category">
                 <option value="in-sale"<% if (productToEdit.category == 'in-sale') { %>selected<% } %>>En oferta</option>
 				<option value="best-seller"<% if (productToEdit.category === 'best-seller') { %>selected<% } %>>Últimos agregados</option>
             </select>
+
+
             <label for="img-product">Imagen:</label>
             <input type="file" id="img-product" name="img-product">
+            <%if(locals.errorImgMsg){%>
+                <div class="errors"><%=errorImgMsg%></div>
+                <%}%>
+
+
             <label for="description">Descripción:</label>
-            <textarea name="description" id="description"><%= productToEdit.description %></textarea>
+            <textarea name="description" id="description">
+<%if(locals.old&&old.description){%><%=old.description%><%}else{%><%=productToEdit.description%><%}%></textarea>
+
+
             <button type="submit">Guardar Cambios</button>
         </form>
     </div>

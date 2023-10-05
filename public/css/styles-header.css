@@ -108,3 +108,12 @@ h2{
     justify-content: space-between;
     width: 100%;
 }
+.container-buttons-social-2{
+    padding: 20px;
+    display: flex;
+    width: 50%;
+	gap: 15px;
+	align-items: center;
+    justify-content: end;
+    position: relative;
+}

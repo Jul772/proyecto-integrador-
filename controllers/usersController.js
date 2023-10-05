@@ -5,13 +5,14 @@ const { Console } = require('console');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const {validationResult}=require('express-validator')
-const cookieParser = require('cookie-parser')
-const bcrypt = require ("bcryptjs")
-
+const bcrypt = require('bcrypt')
+const cookieParser= require("cookie-parser")
 
 const usersController={
-    login: (req,res) => {
-        res.render("login")
+    login:  (req,res) => {
+      res.render("login")
+
+
     },
     procesarlogin: (req,res) => {
         let errors= validationResult(req)
@@ -51,7 +52,7 @@ const usersController={
     // Cargar datos de usuario al json
     saveUser: (req, res) => {
         let errors=validationResult(req)
-        res.send(errors.mapped().firstName.msg) //Probando la variable errors
+        res.res(errors) //Probando la variable errors
 
         //Código para poner cuando funcione :(
         /* if(errors.isEmpty()){

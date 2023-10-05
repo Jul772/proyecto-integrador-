@@ -5,6 +5,8 @@ const router = express.Router()
 const multer = require("multer")
 const {body, check}=require('express-validator')
 
+
+
 const storage = multer.diskStorage({ 
 destination: function (req, file, cb) {
 cb(null, './public/images/products'); 
@@ -15,8 +17,8 @@ filename: function (req, file, cb) {
 
 const usersValidator=[
     body('firstName')
-       .notEmpty()
-       .withMessage('Debes agregar un nombre'),
+        .notEmpty()
+        .withMessage('Debes agregar un nombre'),
     body('lastName')
        .notEmpty()
        .withMessage('Debes agregar un apellido'),
