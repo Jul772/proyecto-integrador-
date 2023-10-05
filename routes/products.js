@@ -3,7 +3,7 @@ const path=require('path')
 const express = require('express')
 const router = express.Router()
 const multer = require("multer")
-const { check } = require("express-validator")
+const { body } = require("express-validator")
 
 const storage = multer.diskStorage({ 
    destination: function (req, file, cb) {
@@ -14,15 +14,15 @@ const storage = multer.diskStorage({
 })
 
 let productValidator = [
-   check("name")
+   body("name")
       .notEmpty().withMessage("Debes completar el nombre")
-      .isLength({min:5}).withMessage("el nombre debe tener almenos 5 caracteres"),
-   check("price")
+      .isLength({min:5}).withMessage("el nombre debe tener al menos 5 caracteres"),
+   body("price")
       .notEmpty().withMessage("Debes completar el precio"),
-   check("description")
+   body("description")
       .notEmpty().withMessage("Debes completar la descripción"),
-   check("img-product")
-      .notEmpty().withMessage("Debes subir una imagen")
+   body("category")
+      .notEmpty().withMessage("Debes poner una categoría")
 ]
 
 const upload = multer({storage});
@@ -37,7 +37,7 @@ router.get("/carrito",productController.carrito)
 router.get("/detail/:id",productController.detail)
 
 router.get("/edit/:id",productController.edit)
-router.put("/edit/:id",upload.single('img-product'), productController.update)
+router.put("/edit/:id",productValidator,upload.single('img-product'), productController.update)
 
 router.delete('/delete/:id', productController.delete)
 

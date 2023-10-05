@@ -15,8 +15,8 @@ filename: function (req, file, cb) {
 
 const usersValidator=[
     body('firstName')
-       .notEmpty()
-       .withMessage('Debes agregar un nombre'),
+        .notEmpty()
+        .withMessage('Debes agregar un nombre'),
     body('lastName')
        .notEmpty()
        .withMessage('Debes agregar un apellido'),

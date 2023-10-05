@@ -22,7 +22,7 @@ const usersController={
     // Cargar datos de usuario al json
     saveUser: (req, res) => {
         let errors=validationResult(req)
-        res.send(errors.mapped().firstName.msg) //Probando la variable errors
+        res.res(errors) //Probando la variable errors
 
         //Código para poner cuando funcione :(
         /* if(errors.isEmpty()){
