@@ -19,7 +19,7 @@
 
             <label for="name">Nombre del producto:</label>
             <input type="text" id="name" name="name" value="<%=locals.old&&locals.old.name%>">
-            <%if(locals.errors&&errors.name.msg){%>
+            <%if(locals.errors&&errors.name){%>
                 <div class="errors"><%=errors.name.msg%></div>
                 <%}%>
 
@@ -27,17 +27,17 @@
             <label for="price">Precio:</label>
             <input type="number" id="price" name="price" placeholder="Ej: 3000" step="0.01" 
             value="<%=locals.old&&locals.old.price%>">
-            <%if(locals.errors&&errors.price.msg){%>
+            <%if(locals.errors&&errors.price){%>
                 <div class="errors"><%=errors.price.msg%></div>
                 <%}%>
 
 
             <label for="discount">Descuento:</label>
-            <input type="text" id="discount" name="discount" placeholder="Ej: 15"
-            <%if(locals.old&&locals.old.discount){%>
-                value="<%=old.discount%>"
-                <%}%>
-                >
+            <input type="text" id="discount" name="discount" placeholder="Ej: 15" value="<%=locals.old&&locals.old.discount%>">
+            <%if(locals.errors&&errors.discount){%>
+                <div class="errors"><%=errors.discount.msg%></div>
+            <%}%>
+
 
             <label for="category">Categoría:</label>
             <select name="category" id="category">
@@ -48,22 +48,24 @@
                 <option value="best-seller" 
                 <%if(locals.old&&old.category=="best-seller"){%>selected<%}%>>Últimos agregados</option>
             </select>
-            <%if(locals.errors&&errors.category.msg){%>
+            <%if(locals.errors&&errors.category){%>
                 <div class="errors"><%=errors.category.msg%></div>
                 <%}%>
 
 
-            <label for="img-product">Imagen:</label>
-            <input type="file" id="img-product" name="img-product">
-            <%if(locals.errorImgMsg){%>
-                <div class="errors"><%=errorImgMsg%></div>
-                <%}%>
+            <label for="productImg">Imagen:</label>
+            <input type="file" id="productImg" name="productImg">
+            <%if(locals.errors&&errors.productImg){%>
+                <div class="errors"><%=errors.productImg.msg%></div>
+            <%}%>
 
 
 
             <label for="description">Descripción:</label>
-            <textarea name="description" id="description" placeholder="Un buen producto :b"></textarea>
-
+            <textarea name="description" id="description" placeholder="Un buen producto :b" value="<%=locals.old&&locals.old.description%>"></textarea>
+            <%if(locals.errors&&errors.description){%>
+                <div class="errors"><%=errors.description.msg%></div>
+            <%}%>
 
             <button type="submit">Guardar Cambios</button>
         </form>
