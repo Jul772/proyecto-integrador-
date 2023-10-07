@@ -12,7 +12,7 @@
 </head>  
 <body>
     <%- include("./partials/header") %>
-    <form class="formulario">
+    <form action= "/users/login" method="POST" class="formulario">
     
     <h1>Login</h1>
     <div class="contenedor">
@@ -23,6 +23,10 @@
         <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
         <input type="password" name="password" placeholder="Contraseña"><br>
+        </div>
+        <div class="input-contenedor">
+            <input type="checkbox" id="recordar" name="recordar">
+            <label for="recordar" class="custom-checkbox">¿Quieres ser recordado?</label>
         </div>
         <input type="submit" value="Login" class="button">
         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>

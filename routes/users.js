@@ -15,6 +15,11 @@ filename: function (req, file, cb) {
     cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  } 
 })
 
+const validatoruser =[
+   check("email").isEmail(),
+   check("password").isLength({min:5}).withMessage("La contraseña debe tener al menos 5 caracteres")
+]
+
 const usersValidator=[
     body('firstName')
         .notEmpty()
@@ -47,7 +52,7 @@ const usersValidator=[
 
 const upload = multer({storage});
 
-router.get("/login",usersController.login)
+router.get("/login",usersValidator,usersController.login)
 
 router.post("/login",usersValidator,usersController.procesarlogin)
 
@@ -55,6 +60,6 @@ router.get("/registro",usersController.registro)
 
 router.post('/registro',usersValidator,upload.single('avatar'), usersController.saveUser)
 
-router.get("/user",usersController.user)
+router.get("/perfil/:id",usersController.user)
 
 module.exports = router
