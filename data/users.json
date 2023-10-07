@@ -42,5 +42,27 @@
   "category": "cliente",
   "image": "1696289346889_img_.png",
   "fechaNacimiento": "2023-10-25"
+ },
+ {
+  "id": 5,
+  "firstName": "Julian",
+  "lastName": "Alvarez",
+  "username": "La araña",
+  "email": "alvarez@gmail.com",
+  "password": "$2a$10$oyMNUbCsLVwlmvUBx807ieVW849XQjBDDKZZkB4hyUSpZAZ95SfKy",
+  "category": "cliente",
+  "image": "1696653316145_img_.jpg",
+  "fechaNacimiento": "2000-01-30"
+ },
+ {
+  "id": 6,
+  "firstName": "Pablo",
+  "lastName": "Solari",
+  "username": "El chico de las poesias",
+  "email": "solari@gmail.com",
+  "password": "$2a$10$3W38G9tDLxbdWKjVe20.2uVtkAeUY2DSe7Bipwi2e5TlQjbitZUyK",
+  "category": "cliente",
+  "image": null,
+  "fechaNacimiento": "2001-03-22"
  }
 ]
