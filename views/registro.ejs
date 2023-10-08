@@ -15,28 +15,28 @@
     <div class="contenedor">
         <div class="input-contenedor">
             <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="Nombre" name="firstName" value="<%=locals.old&&locals.old.firstName%>">
+            <input type="text" placeholder="Nombre" name="firstName" value="<%= locals.oldData ? oldData.firstName : null %>">
         </div>
-        <%if(locals.errors&&errors.firstName.msg){%>
+        <%if(locals.errors&&errors.firstName){%>
         <div class="errors"><%=errors.firstName.msg%></div>
         <%}%>
         <div class="input-contenedor">
             <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="Apellido" name="lastName" value="<%=locals.old&&old.lastName%>">
+            <input type="text" placeholder="Apellido" name="lastName" value="<%= locals.oldData ? oldData.lastName : null %>">
         </div>
         <%if(locals.errors&&errors.lastName){%>
             <div class="errors"><%=errors.lastName.msg%></div>
             <%}%>
         <div class="input-contenedor">
         <i class="fas fa-user icon"></i>
-        <input type="text" placeholder="Nombre de Usuario" name="username" value="<%=locals.old&&old.username%>">
+        <input type="text" placeholder="Nombre de Usuario" name="username" value="<%= locals.oldData ? oldData.username : null %>">
         </div>
         <%if(locals.errors&&errors.username){%>
             <div class="errors"><%=errors.username.msg%></div>
             <%}%>
         <div class="input-contenedor">
         <i class="fas fa-envelope icon"></i>
-        <input type="text" name="email" placeholder="Correo Electrónico" value="<%=locals.old&&old.email%>">
+        <input type="text" name="email" placeholder="Correo Electrónico" value="<%= locals.oldData ? oldData.email : null %>">
         </div>
         <%if(locals.errors&&errors.email){%>
             <div class="errors"><%=errors.email.msg%></div>
@@ -49,7 +49,7 @@
     
         <div class="input-contenedor">
             <i class="fas fa-calendar-alt icon"></i>
-            <input type="date" name="fechaNacimiento" value="<%=locals.old&&old.fechaNacimiento%>">
+            <input type="date" name="fechaNacimiento" value="<%= locals.oldData ? oldData.fechaNacimiento: null %>">
         </div>
         <%if(locals.errors&&errors.fechaNacimiento){%>
             <div class="errors"><%=errors.fechaNacimiento.msg%></div>
@@ -58,6 +58,9 @@
             <label for="avatar">Elige tu avatar</label>
             <input type="file" name="avatar" id="avatar">
         </div>
+        <%if(locals.errors&&errors.avatar){%>
+            <div class="errors"><%=errors.avatar.msg%></div>
+            <%}%>
         <input type="submit" value="Regístrate" class="button">
         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
         <p>¿Ya tienes una cuenta?<a class="link" href="login">Iniciar Sesión</a></p>
