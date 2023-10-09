@@ -1,0 +1,49 @@
+module.exports=(sequelize,dataTypes)=>{
+    const Product=sequelize.define(
+        "Product",
+        {
+            id:{
+                type:dataTypes.INTEGER,
+                primaryKey:true,
+                autoIncrement:true
+            },
+            name:{
+                type:dataTypes.STRING,
+                allowNull:false
+            },
+            price:{
+                type:dataTypes.DECIMAL,
+                allowNull:false
+            },
+            discount:{
+                type:dataTypes.DECIMAL,
+                defaultValue:0
+            },
+            category:{
+                type:dataTypes.STRING,
+                allowNull:false
+            },
+            img:{
+                type:dataTypes.STRING,
+                allowNull:false
+            },
+            rating:{
+                type:dataTypes.INTEGER(11),
+                allowNull:false
+            },
+            description:{
+                type:dataTypes.TEXT
+            },
+            createdAt:{
+                type:dataTypes.DATE
+            },
+            updatedAt:{
+                type:dataTypes.DATE
+            }
+        },
+        {
+            tableName:"products"
+        }
+    )
+    return Product
+}

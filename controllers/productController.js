@@ -51,38 +51,6 @@ const productController = {
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
 		res.redirect("/products/index")
 
-		// if(errors.isEmpty()){
-		// if(req.file&&req.file.mimetype.startsWith('image/')){
-		// 	let ultimoId = 0;
-		// products.forEach((product) => {
-		// 	if (product.id > ultimoId) {
-		// 		ultimoId = product.id;
-		// 	}
-		// });
-
-		// let productoNuevo={
-		// 	id:ultimoId + 1,
-		// 	name:req.body.name,
-		// 	price:req.body.price,
-		// 	discount:req.body.discount,
-		// 	category:req.body.category,
-		// 	description:req.body.description,
-            
-		// }
-		// 	productoNuevo.img=req.file.filename
-		// 	products.push(productoNuevo)
-		// fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
-		// res.redirect("/products/index")
-		// } else { // si no se subió una imagen
-		// 	let errorImgMsg="Debes agregar una imagen del producto"
-		// 	res.send(errorImgMsg)
-		// 	res.render('create',{errorImgMsg:errorImgMsg})
-		// }
-		
-		// } else { //si el validation result tiene errores
-		// 	res.send(errors)
-		// 	res.render('create',{errors:errors.mapped(),old:req.body})
-		// }
     },
     edit: (req,res) => {
         let productToEdit=products.find(producto => producto.id == req.params.id)
@@ -94,10 +62,6 @@ const productController = {
 		if(req.file.mimetype.startsWith('image/')){
 		
         let indexToEdit=products.findIndex(producto => producto.id == req.params.id)
-		// if (!req.file|| !req.file.mimetype.startsWith('image/')){
-		// 	res.redirect("/products/edit/"+products[indexToEdit].id)
-        //     return
-		// }
 		products[indexToEdit].name=req.body.name
 		products[indexToEdit].price=req.body.price
 		products[indexToEdit].category=req.body.category
@@ -105,7 +69,6 @@ const productController = {
 		products[indexToEdit].discount=req.body.discount
 		products[indexToEdit].img = req.file ? req.file.filename : products[indexToEdit].img;
 
-		// products[indexToEdit].img=req.file.filename
 		fs.writeFileSync(productsFilePath,JSON.stringify(products,null," "))
 		res.redirect("/products/index")
 	} else { // si no se subió una imagen

@@ -11,40 +11,40 @@ const session = require("express-session")
 
 const usersController={
     login:  (req,res) => {
-      res.render("login")
+    res.render("login")
 
 
     },
     procesarlogin: (req,res) => {
-      let errors= validationResult(req)
-      if(errors.isEmpty()){
-          let usersJSON = fs.readFileSync("./data/users.json",{errors : errors.errors})
-          let users
-          if (usersJSON == ""){
+    let errors= validationResult(req)
+    if(errors.isEmpty()){
+        let usersJSON = fs.readFileSync("./data/users.json",{errors : errors.errors})
+        let users
+        if (usersJSON == ""){
             users=[]
-          } else {
+        } else {
             users = JSON.parse(usersJSON)
-          }
-          let usuariologin
-          for (let i = 0; i < users.length; i++){
-              if (users[i].email == req.body.email ) {
-                  if (bcrypt.compareSync(req.body.password,users[i].password)){
-                      let usuariologin = users[i]
-                      break;
-                  }
-              }
+        }
+        let usuariologin
+        for (let i = 0; i < users.length; i++){
+            if (users[i].email == req.body.email ) {
+                if (bcrypt.compareSync(req.body.password,users[i].password)){
+                    let usuariologin = users[i]
+                    break;
+                }
+            }
 
-          }
-          if (usuariologin == undefined) {
-              return res.render("login",{errors : [
-                  {msg:"credenciales invalidas"}
-              ]})
-          }
-          req.session.usuarioLogeado = usuariologin
-          res.render("perfil")
-      } else {
-          return res.render("login",{errors : errors.errors})
-      }
+        }
+        if (usuariologin == undefined) {
+            return res.render("login",{errors : [
+                {msg:"credenciales invalidas"}
+            ]})
+        }
+        req.session.usuarioLogeado = usuariologin
+        res.render("perfil")
+    } else {
+        return res.render("login",{errors : errors.errors})
+    }
     },
     // Muestra la vista del registro
     registro: (req,res) => {
@@ -53,7 +53,6 @@ const usersController={
     // Cargar datos de usuario al json
     saveUser: (req, res) => {
         let errors=validationResult(req);
-        // res.send(errors)
 
         if(!errors.isEmpty()){
             return res.render('registro', {errors:errors.mapped(), oldData: req.body});
