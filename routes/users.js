@@ -23,33 +23,33 @@ const validatoruser =[
 ]
 
 const usersValidator=[
-    body('firstName')
-        .notEmpty()
-        .withMessage('Debes agregar un nombre'),
-    body('lastName')
-       .notEmpty()
-       .withMessage('Debes agregar un apellido'),
-    body('username')
-       .notEmpty()
-       .withMessage('Debes agregar un nombre de usuario')
-       .bail()
-       .isLength({min:4})
-       .withMessage('Tu nombre de usuario debe ser mas largo'),
-    body('email')
-       .notEmpty()
-       .withMessage('Agrega un email por favor')
-       .bail()
-       .isEmail()
-       .withMessage('Debes completar con un email valido'),
+   body('firstName')
+      .notEmpty()
+      .withMessage('Debes agregar un nombre'),
+   body('lastName')
+      .notEmpty()
+      .withMessage('Debes agregar un apellido'),
+   body('username')
+      .notEmpty()
+      .withMessage('Debes agregar un nombre de usuario')
+      .bail()
+      .isLength({min:4})
+      .withMessage('Tu nombre de usuario debe ser mas largo'),
+   body('email')
+      .notEmpty()
+      .withMessage('Agrega un email por favor')
+      .bail()
+      .isEmail()
+      .withMessage('Debes completar con un email valido'),
     body('password')
-       .notEmpty()
-       .withMessage('Agrega una contraseña')
-       .bail()
-       .isLength({min:6})
-       .withMessage('Tu contraseña debe ser mas larga'),
+      .notEmpty()
+      .withMessage('Agrega una contraseña')
+      .bail()
+      .isLength({min:6})
+      .withMessage('Tu contraseña debe ser mas larga'),
     body('fechaNacimiento')
-       .notEmpty()
-       .withMessage('Agrega tu fecha de nacimiento'),
+      .notEmpty()
+      .withMessage('Agrega tu fecha de nacimiento'),
 ]
 
 const validations = [

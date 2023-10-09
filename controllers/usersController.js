@@ -18,7 +18,7 @@ const usersController={
     procesarlogin: (req,res) => {
       let errors= validationResult(req)
       if(errors.isEmpty()){
-          let usersJSON = fs.readFileSync("../data/users.json",{errors : errors.errors})
+          let usersJSON = fs.readFileSync("./data/users.json",{errors : errors.errors})
           let users
           if (usersJSON == ""){
             users=[]
@@ -41,7 +41,7 @@ const usersController={
               ]})
           }
           req.session.usuarioLogeado = usuariologin
-          res.render("users")
+          res.render("perfil")
       } else {
           return res.render("login",{errors : errors.errors})
       }
