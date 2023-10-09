@@ -64,5 +64,16 @@
   "category": "cliente",
   "image": null,
   "fechaNacimiento": "2001-03-22"
+ },
+ {
+  "id": 7,
+  "firstName": "goku",
+  "lastName": "son",
+  "username": "kakaroto",
+  "email": "kakaroto@gmail.com",
+  "password": "$2a$10$m0t/8LRGG3nSoYnLa2cUoOtxJhKgTDa8ii0xzg6WirHVZ3XutvWAa",
+  "category": "cliente",
+  "image": "1696888858011_img_.jpg",
+  "fechaNacimiento": "0737-05-09"
  }
 ]
