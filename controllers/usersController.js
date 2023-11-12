@@ -8,6 +8,7 @@ const {validationResult}=require('express-validator')
 const bcrypt = require('bcryptjs')
 const cookieParser= require("cookie-parser")
 const session = require("express-session")
+const db=require('../database/models')
 
 const usersController={
     login:  (req,res) => {
@@ -56,40 +57,25 @@ const usersController={
 
         if(!errors.isEmpty()){
             return res.render('registro', {errors:errors.mapped(), oldData: req.body});
+        } else {
+            db.User.create({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                username: req.body.username,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                rol_id:2,
+                avatar: req.body.avatar,
+                birthdate: req.body.birthdate
+                })
+                .then(res.redirect("/"))
         }
-        
-        //Código para poner cuando funcione :(
-        let ultimoId = 0;
-        users.forEach((user) => {
-            if (user.id > ultimoId) {
-                ultimoId = user.id;
-            }
-        });
-            
-
-        let imageFilename = req.file ? req.file.filename : null;
-
-        let newUser = {
-            id: ultimoId + 1,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            username: req.body.username,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            category: "cliente",
-            image: imageFilename,
-            fechaNacimiento: req.body.fechaNacimiento
-        }
-
-
-        users.push(newUser)
-		fs.writeFileSync(usersFilePath,JSON.stringify(users,null," "))
-        res.redirect("/")
-
     },
-    user: (req, res) => {
-        let usuario = users.find(user => user.id == req.params.id);
-        res.render("users", { user: usuario });
+    user: async (req, res) => {
+        let usuario = await db.User.findByPk(req.params.id)
+        if(usuario){
+            res.render("users", { user: usuario });
+        }
     }
     
 }

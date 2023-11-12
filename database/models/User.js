@@ -3,39 +3,37 @@ module.exports=(sequelize,dataTypes)=>{
         "User",
         {
             id:{
-                type:dataTypes.INTEGER,
+                type:dataTypes.INTEGER(11),
                 primaryKey:true,
                 autoIncrement:true
             },
-            name:{
+            firstName:{
                 type:dataTypes.STRING,
                 allowNull:false
             },
-            price:{
-                type:dataTypes.DECIMAL,
+            lastName:{
+                type:dataTypes.STRING,
                 allowNull:false
             },
-            discount:{
-                type:dataTypes.DECIMAL,
-                defaultValue:0
+            username:{
+                type:dataTypes.STRING,
+                allowNull:false
+            },
+            email:{
+                type:dataTypes.STRING,
+                allowNull:false
+            },
+            password:{
+                type:dataTypes.INTEGER(255),
+                allowNull:false
             },
             rol_id:{
                 type:dataTypes.STRING,
                 allowNull:false
             },
-            img:{
-                type:dataTypes.STRING,
-                allowNull:false
-            },
-            rating:{
-                type:dataTypes.INTEGER(11),
-                allowNull:false
-            },
-            description:{
-                type:dataTypes.TEXT
-            },
             birthdate:{
-                type:dataTypes.DATE
+                type:dataTypes.DATE,
+                allowNull:false
             },
             avatar:{
                 type:dataTypes.STRING

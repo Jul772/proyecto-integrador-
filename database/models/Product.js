@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
                 allowNull: false
             },
             discount: {
-                type: dataTypes.DECIMAL,
+                type: dataTypes.INTEGER,
                 defaultValue: 0
             },
             category_id: {
@@ -29,7 +29,6 @@ module.exports = (sequelize, dataTypes) => {
             },
             rating: {
                 type: dataTypes.INTEGER,
-                allowNull: false
             },
             description: {
                 type: dataTypes.TEXT

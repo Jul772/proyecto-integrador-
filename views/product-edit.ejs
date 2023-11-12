@@ -24,7 +24,7 @@
                 <%}else{%>
             value="<%= productToEdit.name %>">
             <%}%>
-            <%if(locals.errors&&errors.name.msg){%>>
+            <%if(locals.errors&&errors.name){%>>
                 <div class="errors"><%=errors.name.msg%></div>
                 <%}%>
 
@@ -36,7 +36,7 @@
                 <%}else{%>
             value="<%= productToEdit.price %>"<%}%>
             step="0.01">
-            <%if(locals.errors&&errors.price.msg){%>
+            <%if(locals.errors&&errors.price){%>
                 <div class="errors"><%=errors.price.msg%></div>
                 <%}%>
             
@@ -59,16 +59,20 @@
             </select>
 
 
-            <label for="img-product">Imagen:</label>
-            <input type="file" id="img-product" name="img-product">
-            <%if(locals.errorImgMsg){%>
-                <div class="errors"><%=errorImgMsg%></div>
+            <label for="productImg">Imagen:</label>
+            <input type="file" id="productImg" name="productImg">
+            <%if(locals.errors&&errors.productImg){%>
+                <div class="errors"><%=errors.productImg.msg%></div>
                 <%}%>
 
 
             <label for="description">Descripción:</label>
             <textarea name="description" id="description">
 <%if(locals.old&&old.description){%><%=old.description%><%}else{%><%=productToEdit.description%><%}%></textarea>
+
+            <%if(locals.errors&&errors.description){%>
+                <div class="errors"><%=errors.description.msg%></div>
+            <%}%>
 
 
             <button type="submit">Guardar Cambios</button>

@@ -19,14 +19,14 @@ const upload = multer({storage});
 router.get('/index',productController.index)
 
 router.get("/create",productController.create)
-router.post('/create',upload.single('productImg'),validator.productsValidator,productController.store)
+router.post('/create',upload.single('productImg'),validator.productsValidatorCreate,productController.store)
 
 router.get("/carrito",productController.carrito)
 
 router.get("/detail/:id",productController.detail)
 
 router.get("/edit/:id",productController.edit)
-router.put("/edit/:id",validator.productsValidator,upload.single('productImg'), productController.update)
+router.put("/edit/:id",upload.single('productImg'),validator.productsValidatorUpdate, productController.update)
 
 router.delete('/delete/:id', productController.delete)
 
