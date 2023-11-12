@@ -19,7 +19,7 @@ module.exports=(sequelize,dataTypes)=>{
                 type:dataTypes.DECIMAL,
                 defaultValue:0
             },
-            category:{
+            rol_id:{
                 type:dataTypes.STRING,
                 allowNull:false
             },
@@ -34,16 +34,27 @@ module.exports=(sequelize,dataTypes)=>{
             description:{
                 type:dataTypes.TEXT
             },
-            createdAt:{
+            birthdate:{
                 type:dataTypes.DATE
             },
-            updatedAt:{
-                type:dataTypes.DATE
+            avatar:{
+                type:dataTypes.STRING
             }
         },
         {
-            tableName:"users"
+            tableName:"users",
+            timestamps:false
         }
     )
+    User.associate=function(modelos){
+        User.belongsTo(modelos.Rol,{
+            as:'rol',
+            foreignKey:'category_id'
+        }),
+        User.hasOne(modelos.Carrito,{
+            as:'carrito',
+            foreignKey:'user_id'
+        })
+    }
     return User
 }

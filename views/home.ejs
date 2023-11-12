@@ -16,7 +16,7 @@
         <h2>Mas vendidos</h2>
         <section class="articulos-mas-vendidos">
             <% for (let i=0; i<products.length; i++){%>
-            <%if(products[i].category=='best-seller'){%>
+            <%if(products[i].category_id=='best-seller'){%>
             <a href="/products/detail/<%=products[i].id%>" class="articulo">
                 <div class="img-container">
                     <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">
@@ -43,7 +43,7 @@
         <h2>Artículos en oferta</h2>
         <section class="articulos-en-oferta">
             <% for (let i=0; i<products.length; i++){%>
-            <%if (products[i].category=='in-sale'){%>
+            <%if (products[i].category_id==1){%>
                 <a href="/products/detail/<%=products[i].id%>" class="articulo">
                     <div class="img-container">
                         <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">

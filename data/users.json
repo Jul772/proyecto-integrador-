@@ -75,5 +75,16 @@
   "category": "cliente",
   "image": "1696888858011_img_.jpg",
   "fechaNacimiento": "0737-05-09"
+ },
+ {
+  "id": 8,
+  "firstName": "Samu",
+  "lastName": "Messi",
+  "username": "samuelagustin332008@gmail.com",
+  "email": "samuelagustin332008@gmail.com",
+  "password": "$2a$10$.CaySdkikvF0Y0myydlukugthriEdM1rfqG3GfXsYL0P8aGqm7/.2",
+  "category": "cliente",
+  "image": "1699485452222_img_.jpg",
+  "fechaNacimiento": "2023-11-02"
  }
 ]
