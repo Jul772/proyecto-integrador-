@@ -13,39 +13,23 @@ const db=require('../database/models')
 const usersController={
     login:  (req,res) => {
     res.render("login")
-
-
     },
-    procesarlogin: (req,res) => {
+    procesarlogin: async (req,res) => {
     let errors= validationResult(req)
     if(errors.isEmpty()){
-        let usersJSON = fs.readFileSync("./data/users.json",{errors : errors.errors})
-        let users
-        if (usersJSON == ""){
-            users=[]
+        const {email,password}=req.body
+        const user = await db.User.findOne({ where: { email } });
+        if (user && bcrypt.compareSync(password, user.password)) {
+            req.session.usuarioLogeado = user;
+            return res.render('perfil');
         } else {
-            users = JSON.parse(usersJSON)
+            return res.render('login', {
+                errors: [{ msg: 'Credenciales inválidas' }],
+            });
+        } 
+        }else {
+            return res.render("login",{errors : errors.errors})
         }
-        let usuariologin
-        for (let i = 0; i < users.length; i++){
-            if (users[i].email == req.body.email ) {
-                if (bcrypt.compareSync(req.body.password,users[i].password)){
-                    let usuariologin = users[i]
-                    break;
-                }
-            }
-
-        }
-        if (usuariologin == undefined) {
-            return res.render("login",{errors : [
-                {msg:"credenciales invalidas"}
-            ]})
-        }
-        req.session.usuarioLogeado = usuariologin
-        res.render("perfil")
-    } else {
-        return res.render("login",{errors : errors.errors})
-    }
     },
     // Muestra la vista del registro
     registro: (req,res) => {

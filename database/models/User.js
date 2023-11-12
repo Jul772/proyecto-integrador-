@@ -47,7 +47,7 @@ module.exports=(sequelize,dataTypes)=>{
     User.associate=function(modelos){
         User.belongsTo(modelos.Rol,{
             as:'rol',
-            foreignKey:'category_id'
+            foreignKey:'rol_id'
         }),
         User.hasOne(modelos.Carrito,{
             as:'carrito',
