@@ -46,13 +46,16 @@
         <i class="fas fa-key icon"></i>
         <input type="password" name="password" placeholder="Contraseña">
         </div>
+        <%if(locals.errors&&errors.password){%>
+            <div class="errors"><%=errors.password.msg%></div>
+            <%}%>
     
         <div class="input-contenedor">
             <i class="fas fa-calendar-alt icon"></i>
-            <input type="date" name="fechaNacimiento" value="<%= locals.oldData ? oldData.fechaNacimiento: null %>">
+            <input type="date" name="birthdate" value="<%= locals.oldData ? oldData.birthdate: null %>">
         </div>
-        <%if(locals.errors&&errors.fechaNacimiento){%>
-            <div class="errors"><%=errors.fechaNacimiento.msg%></div>
+        <%if(locals.errors&&errors.birthdate){%>
+            <div class="errors"><%=errors.birthdate.msg%></div>
             <%}%>
         <div class="input-contenedor">
             <label for="avatar">Elige tu avatar</label>

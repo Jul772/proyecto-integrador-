@@ -3,47 +3,56 @@ module.exports=(sequelize,dataTypes)=>{
         "User",
         {
             id:{
-                type:dataTypes.INTEGER,
+                type:dataTypes.INTEGER(11),
                 primaryKey:true,
                 autoIncrement:true
             },
-            name:{
+            firstName:{
                 type:dataTypes.STRING,
                 allowNull:false
             },
-            price:{
-                type:dataTypes.DECIMAL,
-                allowNull:false
-            },
-            discount:{
-                type:dataTypes.DECIMAL,
-                defaultValue:0
-            },
-            category:{
+            lastName:{
                 type:dataTypes.STRING,
                 allowNull:false
             },
-            img:{
+            username:{
                 type:dataTypes.STRING,
                 allowNull:false
             },
-            rating:{
-                type:dataTypes.INTEGER(11),
+            email:{
+                type:dataTypes.STRING,
                 allowNull:false
             },
-            description:{
-                type:dataTypes.TEXT
+            password:{
+                type:dataTypes.INTEGER(255),
+                allowNull:false
             },
-            createdAt:{
-                type:dataTypes.DATE
+            rol_id:{
+                type:dataTypes.STRING,
+                allowNull:false
             },
-            updatedAt:{
-                type:dataTypes.DATE
+            birthdate:{
+                type:dataTypes.DATE,
+                allowNull:false
+            },
+            avatar:{
+                type:dataTypes.STRING
             }
         },
         {
-            tableName:"users"
+            tableName:"users",
+            timestamps:false
         }
     )
+    User.associate=function(modelos){
+        User.belongsTo(modelos.Rol,{
+            as:'rol',
+            foreignKey:'rol_id'
+        }),
+        User.hasOne(modelos.Carrito,{
+            as:'carrito',
+            foreignKey:'user_id'
+        })
+    }
     return User
 }

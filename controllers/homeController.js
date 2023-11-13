@@ -2,12 +2,19 @@ const express=require('express')
 const path=require('path')
 const fs = require('fs');
 const { Console } = require('console');
-const productsFilePath = path.join(__dirname, '../data/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db=require('../database/models');
 
 const homeController = {
     home: function(req,res){
-        res.render('home',{products:products})
+        db.Product.findAll({
+            raw:true,
+            include:[
+                {association:'category'}
+            ]
+        })
+            .then((products)=>{
+                res.render('home',{products:products})
+            })
     }
 }
 
