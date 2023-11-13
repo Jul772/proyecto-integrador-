@@ -14,7 +14,6 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'))
 app.use(cookieParser())
-app.use(session({secret:"secretito"}))
 app.use(recordameMiddleware)
 
 app.listen(5000,() => (console.log(`servidor abierto en http://localhost:5000`)))
