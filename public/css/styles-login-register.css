@@ -10,6 +10,7 @@ body {
 }
 .email {
     line-height: 2.5;
+    width: calc(100% - 54px);
 }
 .contenedor{
     width: 100%;
@@ -35,9 +36,22 @@ input[type="password"]{
     padding: 10px;
     border: none;
 }
+.copyright{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
 .input-contenedor{
+    display: block;
     margin-bottom: 15px;
     border: 1px solid #aaa;
+    border-radius: 5px;
+}
+#recordar{
+    padding: 10px;
+}
+.custom-checkbox{
+    padding-left: 20px;
 }
 .icon{
     min-width: 50px;

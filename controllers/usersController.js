@@ -3,7 +3,6 @@ const path=require('path')
 const fs = require('fs');
 const { Console, error } = require('console');
 const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const {validationResult}=require('express-validator')
 const bcrypt = require('bcryptjs')
 const cookieParser= require("cookie-parser")
@@ -23,12 +22,10 @@ const usersController={
             req.session.usuarioLogeado = user;
             return res.render('perfil');
         } else {
-            return res.render('login', {
-                errors: [{ msg: 'Credenciales inválidas' }],
-            });
+            return res.render('login', {errorCredenciales:'Credenciales inválidas', old:req.body});
         } 
         }else {
-            return res.render("login",{errors : errors.errors})
+            return res.render("login",{errors:errors.mapped(), old:req.body})
         }
     },
     // Muestra la vista del registro
