@@ -20,6 +20,7 @@
         <%if(locals.errors&&errors.firstName){%>
         <div class="errors"><%=errors.firstName.msg%></div>
         <%}%>
+        
         <div class="input-contenedor">
             <i class="fas fa-user icon"></i>
             <input type="text" placeholder="Apellido" name="lastName" value="<%= locals.oldData ? oldData.lastName : null %>">
@@ -70,5 +71,7 @@
     </div>
     </form>
     <%- include("./partials/footer") %>
+
+    <script src="/public/js/registro.js"></script>
 </body>
 </html>
