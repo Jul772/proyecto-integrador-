@@ -4,7 +4,6 @@ function recordame (req,res,next) {
         const user = db.User.findOne({ where: { email } });
         if (user){
             req.session.usuarioLogeado = user;
-            ;
         }
     }
     next()

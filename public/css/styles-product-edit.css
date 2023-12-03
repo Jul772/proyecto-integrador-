@@ -6,6 +6,11 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+textarea {
+    resize: vertical;
+    min-height: 50px; 
+}
+
 .container {
     max-width: 800px;
     margin: 20px auto;

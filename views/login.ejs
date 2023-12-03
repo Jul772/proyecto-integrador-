@@ -18,16 +18,32 @@
     <div class="contenedor">
     <div class="input-contenedor">
         <i class="fas fa-envelope icon"></i>
-        <input class="email" type="email" name="email" placeholder="Correo Electronico"><br>
-        </div>
+        <input class="email" name="email" placeholder="Correo Electrónico" value="<%=locals.old&&locals.old.email%>">
+        <br>
+    </div>
+        <%if(locals.errors&&errors.email.msg){%>
+            <div class="errors"><%=errors.email.msg%></div>
+        <%}%>
+
         <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
         <input type="password" name="password" placeholder="Contraseña"><br>
         </div>
-        <div class="input-contenedor">
-            <input type="checkbox" id="recordar" name="recordar">
+
+        <%if(locals.errors&&errors.password){%>
+            <div class="errors"><%=errors.password.msg%></div>
+        <%}%>
+
+
+        <div class="input-contenedor" id="recordar">
+            <input type="checkbox" name="recordar">
             <label for="recordar" class="custom-checkbox">¿Quieres ser recordado?</label>
         </div>
+
+        <%if(locals&&locals.errorCredenciales){%>
+            <div class="errors"><%=errorCredenciales%></div>
+        <%}%>
+
         <input type="submit" value="Login" class="button">
         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
         <p>¿No tienes una cuenta? <a class="link" href="registro">Registrate </a></p>
