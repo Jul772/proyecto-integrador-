@@ -14,11 +14,11 @@
     <%- include("./partials/header") %>
     <div class="container">
         <h1>Estás editando: <i><%=productToEdit.name%></i></h1>
-        <form action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="post" enctype="multipart/form-data">
+        <form class="formulario" action="/products/edit/<%=productToEdit.id%>?_method=PUT" method="post" enctype="multipart/form-data">
 
 
             <label for="name">Nombre del producto:</label>
-            <input type="text" id="name" name="name" 
+            <input class="name" type="text" id="name" name="name" 
             <%if(locals.old&&old.name){%>
                 value="<%=old.name%>"
                 <%}else{%>
@@ -27,6 +27,7 @@
             <%if(locals.errors&&errors.name){%>>
                 <div class="errors"><%=errors.name.msg%></div>
                 <%}%>
+                <div class="errors frontError errorName"></div>
 
 
             <label for="price">Precio:</label>
@@ -60,24 +61,27 @@
 
 
             <label for="productImg">Imagen:</label>
-            <input type="file" id="productImg" name="productImg">
+            <input class="img" type="file" id="productImg" name="productImg">
             <%if(locals.errors&&errors.productImg){%>
                 <div class="errors"><%=errors.productImg.msg%></div>
                 <%}%>
+                <div class="errors frontError errorImg"></div>
 
 
             <label for="description">Descripción:</label>
-            <textarea name="description" id="description">
+            <textarea class="description" name="description" id="description">
 <%if(locals.old&&old.description){%><%=old.description%><%}else{%><%=productToEdit.description%><%}%></textarea>
 
             <%if(locals.errors&&errors.description){%>
                 <div class="errors"><%=errors.description.msg%></div>
             <%}%>
+            <div class="errors frontError errorDescription"></div>
 
 
             <button type="submit">Guardar Cambios</button>
         </form>
     </div>
+    <script src="/js/edit.js"></script>
 </body>
 <%- include("./partials/footer") %>
 </html>
