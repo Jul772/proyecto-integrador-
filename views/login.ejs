@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title> 
+	<title>Iniciar Sesión</title> 
 	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
 	<link rel="stylesheet" href="/css/styles-login-register.css">
@@ -18,30 +18,32 @@
     <div class="contenedor">
     <div class="input-contenedor">
         <i class="fas fa-envelope icon"></i>
-        <input class="email" name="email" placeholder="Correo Electrónico" value="<%=locals.old&&locals.old.email%>">
+        <input type="text" class="email" name="email" placeholder="Correo Electrónico" value="<%=locals.old&&locals.old.email%>">
         <br>
     </div>
+    <div class="errors frontError errorEmail"></div>
         <%if(locals.errors&&errors.email.msg){%>
             <div class="errors"><%=errors.email.msg%></div>
         <%}%>
 
         <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-        <input type="password" name="password" placeholder="Contraseña"><br>
+        <input type="password" name="password" class="password" placeholder="Contraseña"><br>
         </div>
+        <div class="errors frontError errorPassword"></div>
 
         <%if(locals.errors&&errors.password){%>
             <div class="errors"><%=errors.password.msg%></div>
         <%}%>
 
 
-        <div class="input-contenedor" id="recordar">
-            <input type="checkbox" name="recordar">
+        <div class="input-contenedor" id="recuerdame">
+            <input type="checkbox" name="recordar" id="recordar">
             <label for="recordar" class="custom-checkbox">¿Quieres ser recordado?</label>
         </div>
 
         <%if(locals&&locals.errorCredenciales){%>
-            <div class="errors"><%=errorCredenciales%></div>
+            <div class="errors frontError errors"><%=errorCredenciales%></div>
         <%}%>
 
         <input type="submit" value="Login" class="button">
@@ -50,6 +52,7 @@
     </div>
     </form>
     <%- include("./partials/footer") %>
-    <script src="/public/js/login.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
 </body>
 </html>

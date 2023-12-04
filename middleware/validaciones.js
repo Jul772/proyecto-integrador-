@@ -108,7 +108,8 @@ const validator={
       body('discount')
          .notEmpty().withMessage("Debes completar el descuento")
          .isInt({ min: 0, max: 100 }).withMessage("El descuento debe estar entre 0 y 100"),
-      body("description").notEmpty().withMessage("Debes completar la descripción"),
+      body("description").notEmpty().withMessage("Debes completar la descripción").bail()
+      .isLength({min:20}).withMessage('Tu descripción debe tener al menos 20 caracteres'),
       body("category").notEmpty().withMessage("Debes poner una categoría"),
       body('productImg').custom((value, { req }) => {
          let file = req.file;

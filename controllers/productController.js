@@ -1,4 +1,5 @@
 const express=require('express')
+const fs = require('fs');
 const { Console } = require('console');
 const { validationResult } = require('express-validator');
 const db=require('../database/models');
@@ -90,14 +91,29 @@ const productController = {
 		}
     },
 
-    delete: async (req, res) => {
-		let productDeleted=await db.Product.destroy({
-			where:{id:req.params.id}
-		})
-		if(productDeleted){
-			res.redirect('/products/index')
-		}
+
+delete: async (req, res) => {
+	try {
+    const productToDelete = await db.Product.findOne({
+    where: { id: req.params.id }
+    });
+
+    const productDeleted = await db.Product.destroy({
+    where: { id: req.params.id }
+    });
+
+    if (productDeleted) {
+    const imagePath = `./public/images/products/${productToDelete.img}`;
+    fs.unlinkSync(imagePath);
+
+    res.redirect('/products/index');
     }
+	} catch (error) {
+    console.error('Error al eliminar el producto:', error);
+    res.status(500).send('Error al eliminar el producto');
+	}
+}
+
 
 }
 module.exports = productController
