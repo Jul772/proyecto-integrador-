@@ -1,7 +1,4 @@
 const express=require('express')
-const path=require('path')
-const fs = require('fs');
-const { Console } = require('console');
 const db=require('../database/models');
 
 const homeController = {

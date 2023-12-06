@@ -70,13 +70,16 @@ window.addEventListener("load", function () {
             quitarError(errorDescription);
         }
 
-        const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-        const fileExtension = img.value.split('.').pop().toLowerCase();
-        if (!allowedExtensions.includes(fileExtension)) {
-            errores.push('El archivo de imagen debe ser JPG, JPEG, PNG o GIF.');
-            agregarError(errorImg, 'El archivo de imagen debe ser JPG, JPEG, PNG o GIF.');
-        } else {
-            quitarError(errorImg);
+        if(img.value!=''){
+            const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+            const fileExtension = img.value.split('.').pop().toLowerCase();
+            if (!allowedExtensions.includes(fileExtension)) {
+                errores.push('El archivo de imagen debe ser JPG, JPEG, PNG o GIF.');
+                agregarError(errorImg, 'El archivo de imagen debe ser JPG, JPEG, PNG o GIF.');
+            } else {
+                quitarError(errorImg);
+            }
+
         }
 
         if (errores.length > 0) {

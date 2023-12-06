@@ -1,6 +1,5 @@
 const express=require('express')
 const fs = require('fs');
-const { Console } = require('console');
 const { validationResult } = require('express-validator');
 const db=require('../database/models');
 
@@ -61,7 +60,7 @@ const productController = {
 				res.render('product-edit',{productToEdit:productToEdit})
 			})
     },
-    update:(req,res)=>{
+    update: (req,res)=>{
 		let errors=validationResult(req)
 
 		if(errors.isEmpty()){
