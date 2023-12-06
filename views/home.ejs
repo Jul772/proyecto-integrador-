@@ -15,6 +15,7 @@
     <main>
         <h2>Mas vendidos</h2>
         <section class="articulos-mas-vendidos">
+            <div id="results"></div>
             <% for (let i=0; i<products.length; i++){%>
             <%if(products[i]['category.name']=='best-seller'){%>
             <a href="/products/detail/<%=products[i].id%>" class="articulo">
@@ -71,4 +72,5 @@
 
     <%- include("./partials/footer") %>
 </body>
+<script src="/js/buscador.js"></script>
 </html>

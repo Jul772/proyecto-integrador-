@@ -76,6 +76,9 @@ main{
     justify-content: end;
     position: relative;
 }
+.filtro{
+    display: none;
+}
 .copyright{
     display: flex;
     align-self: center;
