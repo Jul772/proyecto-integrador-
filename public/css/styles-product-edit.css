@@ -6,6 +6,11 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+textarea {
+    resize: vertical;
+    min-height: 50px; 
+}
+
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -26,7 +31,6 @@ textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
     border-radius: 4px;
 }
 button {
@@ -63,6 +67,5 @@ input[type="file"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
     border-radius: 4px;
 }

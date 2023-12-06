@@ -67,15 +67,35 @@ h2{
     padding: 10px 0px;
     text-align: center;
 }
+.errorsInput{
+    display: block;
+    color: rgb(196, 44, 33);
+    background-color: rgb(250, 232, 230);
+    border-radius: 4px;
+    border: 1px solid red;
+    padding: 8px 0px 8px 10px;
+}
+
 .errors{
     display: block;
-    background-color: rgb(255, 135, 135);
-    border-radius: 5px;
-    border: 1px red solid;
-    padding: 5px;
-    margin: 10px;
-    text-align: center;
+    color: rgb(196, 44, 33);
+    background-color: rgb(250, 232, 230);
+    border-radius: 4px;
+    border: 1px solid rgb(250, 232, 230);
+    padding: 8px 0px 8px 10px;
+    margin: 10px 0;
 }
+
+.frontError{
+    display: none;
+}
+
+.avatar{
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+
 .navegacion{
     display: none;
     width: 100%;

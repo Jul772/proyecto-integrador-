@@ -8,9 +8,6 @@ body {
 * {
     box-sizing: border-box;
 }
-.email {
-    line-height: 2.5;
-}
 .contenedor{
     width: 100%;
     padding: 15px;
@@ -31,13 +28,33 @@ input[type="text"],
 input[type="date"],
 input[type="password"]{
     font-size: 20px;
-    width: 82%;
+    width: calc(100% - 50px);
     padding: 10px;
     border: none;
 }
+.copyright{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
 .input-contenedor{
+    display: flex;
+    align-items: center;
     margin-bottom: 15px;
     border: 1px solid #aaa;
+    border-radius: 5px;
+}
+#recuerdame{
+    padding: 10px;
+}
+#avatar{
+    width: calc(100% - 121px);
+}
+label{
+    padding: 0px 10px;
+}
+.custom-checkbox{
+    padding-left: 20px;
 }
 .icon{
     min-width: 50px;
