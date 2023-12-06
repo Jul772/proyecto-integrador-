@@ -1,6 +1,5 @@
 const express=require('express')
 const fs = require('fs');
-const { Console } = require('console');
 const { validationResult } = require('express-validator');
 const db=require('../database/models');
 
