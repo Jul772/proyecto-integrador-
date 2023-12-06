@@ -60,12 +60,13 @@ const productController = {
 				res.render('product-edit',{productToEdit:productToEdit})
 			})
     },
-    update:(req,res)=>{
+    update: (req,res)=>{
 		let errors=validationResult(req)
 
 		if(errors.isEmpty()){
 			let imgAnterior=db.Product.findByPk(req.params.id)
-			.then(imgAnterior=>{
+			.then (imgAnterior=>{
+				
 				db.Product.update(
 					{
 						name:req.body.name,
