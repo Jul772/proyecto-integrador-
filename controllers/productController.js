@@ -66,12 +66,16 @@ const productController = {
 
 		if(errors.isEmpty()){
 			let imgAnterior=db.Product.findByPk(req.params.id)
-			.then(imgAnterior=>{
+			.then (async imgAnterior=>{
+				const categoryName = req.body.category;
+		let category = await db.Category.findOne({
+			where: { name: categoryName }
+		});
 				db.Product.update(
 					{
 						name:req.body.name,
 						price:req.body.price,
-						category:req.body.category,
+						category_id:category.id,
 						description:req.body.description,
 						discount:req.body.discount,
 						img : req.file ? req.file.filename : imgAnterior.img

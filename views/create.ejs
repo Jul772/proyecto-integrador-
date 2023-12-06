@@ -43,11 +43,18 @@
             <label for="category">Categoría:</label>
             <select name="category" id="category">
                 <option value="">Elegí</option>
-                <option value="in-sale" 
-                <%if(locals.old&&old.category=="in-sale"){%>selected<%}%>
-                    >En oferta</option>
-                <option value="best-seller" 
-                <%if(locals.old&&old.category=="best-seller"){%>selected<%}%>>Más vendidos</option>
+                <option value="Proteina" 
+                <%if(locals.old&&old.category=="Proteina"){%>selected<%}%>
+                    >Proteina</option>
+                <option value="Quemadores-de-Grasa" 
+                <%if(locals.old&&old.category=="Desarrollo-Muscular"){%>selected<%}%>
+                >Desarrollo Muscular</option>
+                <option value="Energia-Resistencia" 
+                <%if(locals.old&&old.category=="Energia-Resistencia"){%>selected<%}%>
+                    >Energia y Resistencia</option>
+                <option value="Quemadores-de-Grasa" 
+                <%if(locals.old&&old.category=="Quemadores-de-Grasa"){%>selected<%}%>
+                >Quemadores de Grasa</option>
             </select>
             <%if(locals.errors&&errors.category){%>
                 <div class="errors"><%=errors.category.msg%></div>

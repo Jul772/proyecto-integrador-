@@ -13,10 +13,10 @@
 <body>
     <%- include("./partials/header") %>
     <main>
-        <h2>Mas vendidos</h2>
-        <section class="articulos-mas-vendidos">
+        <h2>Proteina</h2>
+        <section class="articulos-en-oferta">
             <% for (let i=0; i<products.length; i++){%>
-            <%if(products[i]['category.name']=='best-seller'){%>
+            <%if(products[i]['category.name']=='Proteina'){%>
             <a href="/products/detail/<%=products[i].id%>" class="articulo">
                 <div class="img-container">
                     <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">
@@ -40,10 +40,64 @@
             </a>
             <%}}%>
         </section>
-        <h2>Artículos en oferta</h2>
+        <h2>Desarrollo Muscular</h2>
         <section class="articulos-en-oferta">
             <% for (let i=0; i<products.length; i++){%>
-            <%if (products[i]['category.name']=="in-sale"){%>
+            <%if (products[i]['category.name']=="Desarrollo-Muscular"){%>
+                <a href="/products/detail/<%=products[i].id%>" class="articulo">
+                    <div class="img-container">
+                        <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="detalles">
+                            <div class="article-name"><%=products[i].name%></div>
+                            <div class="article-cost">$<%=products[i].price%></div>
+                        </div>
+                        <div class="caracteristicas">
+                            <div class="article-rating">
+                                <%for(let i=0;i<=products[i].rating;i++){%>
+                                <i class="fas fa-star"></i>
+                                <%}%>
+                            </div>
+                            <%if(products[i].discount!=0){%>
+                            <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i><%=products[i].discount%>% OFF</div>
+                            <%}%>
+                        </div>
+                    </div>
+                </a>
+            <%}}%>
+        </section>
+        <h2>Energia y Resistencia</h2>
+        <section class="articulos-en-oferta">
+            <% for (let i=0; i<products.length; i++){%>
+            <%if (products[i]['category.name']=="Energia-Resistencia"){%>
+                <a href="/products/detail/<%=products[i].id%>" class="articulo">
+                    <div class="img-container">
+                        <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="detalles">
+                            <div class="article-name"><%=products[i].name%></div>
+                            <div class="article-cost">$<%=products[i].price%></div>
+                        </div>
+                        <div class="caracteristicas">
+                            <div class="article-rating">
+                                <%for(let i=0;i<=products[i].rating;i++){%>
+                                <i class="fas fa-star"></i>
+                                <%}%>
+                            </div>
+                            <%if(products[i].discount!=0){%>
+                            <div class="article-offer"><i class="fas fa-tags fa-flip-horizontal"></i><%=products[i].discount%>% OFF</div>
+                            <%}%>
+                        </div>
+                    </div>
+                </a>
+            <%}}%>
+        </section>
+        <h2>Quemadores de Grasa</h2>
+        <section class="articulos-en-oferta">
+            <% for (let i=0; i<products.length; i++){%>
+            <%if (products[i]['category.name']=="Quemadores-de-Grasa"){%>
                 <a href="/products/detail/<%=products[i].id%>" class="articulo">
                     <div class="img-container">
                         <img class="img-producto" src="/images/products/<%=products[i].img%>" alt="imagen del producto">

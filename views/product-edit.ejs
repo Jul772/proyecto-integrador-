@@ -55,8 +55,10 @@
 
             <label for="category">Categoría:</label>
             <select name="category" id="category">
-                <option value="in-sale"<% if (productToEdit.category == 'in-sale') { %>selected<% } %>>En oferta</option>
-				<option value="best-seller"<% if (productToEdit.category === 'best-seller') { %>selected<% } %>>Últimos agregados</option>
+                <option value="Proteina"<% if (productToEdit.category_id == 1 ) { %>selected<% } %>>Proteina</option>
+				<option value="Desarrollo-Muscular"<% if (productToEdit.category_id === 2 ) { %>selected<% } %>>Desarrollo Muscular</option>
+                <option value="Energia-Resistencia"<% if (productToEdit.category_id == 3 ) { %>selected<% } %>>Energia y Resistencia</option>
+				<option value="Quemadores-de-Grasa"<% if (productToEdit.category_id === 4 ) { %>selected<% } %>>Quemadores de Grasa</option>
             </select>
 
 
