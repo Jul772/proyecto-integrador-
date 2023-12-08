@@ -15,7 +15,7 @@ textarea {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #fff9;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -35,7 +35,7 @@ textarea {
 }
 button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #8080808f;
     color: #fff;
     border: none;
     border-radius: 4px;

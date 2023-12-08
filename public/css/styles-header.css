@@ -7,7 +7,7 @@ a{
 }
 header{
     display: flex;
-    background-color: white;
+    background-color: #8080808f;
     flex-wrap: wrap;
 }
 h2{
@@ -99,7 +99,7 @@ h2{
 .navegacion{
     display: none;
     width: 100%;
-    background-color: aqua;
+    background-color: #00ccffc9 ;
 }
 .site{
     display: flex;
@@ -123,7 +123,7 @@ h2{
     }
 }
 #footer{
-    background-color: white;
+    background-color:  #8080808f;
     display: flex;
     justify-content: space-between;
     width: 100%;

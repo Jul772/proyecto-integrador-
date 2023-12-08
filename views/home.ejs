@@ -13,14 +13,8 @@
 <body>
     <%- include("./partials/header") %>
     <main>
-<<<<<<< HEAD
         <h2>Proteina</h2>
         <section class="articulos-en-oferta">
-=======
-        <h2>Mas vendidos</h2>
-        <section class="articulos-mas-vendidos">
-            <div id="results"></div>
->>>>>>> 411c2dd23a6e16a0ebf9c036fa480ab798446dc5
             <% for (let i=0; i<products.length; i++){%>
             <%if(products[i]['category.name']=='Proteina'){%>
             <a href="/products/detail/<%=products[i].id%>" class="articulo">
