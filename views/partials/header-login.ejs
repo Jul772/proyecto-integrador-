@@ -1,0 +1,44 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitFit</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"    >
+    <link rel="stylesheet" href="/css/styles-header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body> -->
+    <header>
+        <nav class="busqueda">
+            <a href="/" class="logo"><img id="logo" src="/images/logo3.png" alt="logo"></a>
+            <div class="busqueda-texto">
+                <input type="text" class="navegacion-texto" id="buscador" placeholder="Buscar productos">
+                <button class="search" type="submit" name="enviar">
+                    <i class="fas fa-search" id="lupa"></i>
+                </button>
+                
+            </div>
+                <div class="menu-bars"><i class="fas fa-bars"></i></div>
+        </nav>
+        <nav class="login-nav">
+            <div class="shopp-cart">
+                <a href="/products/carrito">
+                    <i class="fas fa-shopping-cart"></i>Tu carrito
+                </a>
+            </div>
+            <div class="shopp-cart" >
+                <a href="/users/perfil/:id">
+                    <%=user.firstName%><i class="fas fa-user"></i>
+                </a>
+            </div>
+        </nav>
+        <nav class="navegacion">
+            <a href="/products/index" class="site">Todos los productos</a>
+            <a href="/products/create" class="site">Vender</a>
+            <a class="site">Snacks</a>
+            <a class="site">Vitaminas</a>
+            <a class="site">Nutrición</a>
+        </nav>
+    </header>

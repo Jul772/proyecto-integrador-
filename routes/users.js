@@ -17,11 +17,9 @@ const storage = multer.diskStorage({
 const upload = multer({storage});
 
 router.get("/login",validator.usersValidatorLogin,usersController.login)
-
 router.post("/login",validator.usersValidatorLogin,usersController.procesarlogin)
 
 router.get("/registro",usersController.registro)
-
 router.post('/registro',upload.single('avatar'), validator.usersValidatorRegister , usersController.saveUser)
 
 router.get("/perfil/:id",usersController.user)

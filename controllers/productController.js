@@ -4,7 +4,8 @@ const { validationResult } = require('express-validator');
 const db=require('../database/models');
 
 const productController = {
-    index:function(req,res){
+    index:async function(req,res){
+		let usuario = await db.User.findByPk(req.params.id)
 		db.Product.findAll({
             raw:true,
             include:[
@@ -12,9 +13,8 @@ const productController = {
             ]
         })
 			.then((products)=>
-				res.render('index',{products:products})
+				res.render('index',{products:products, user: usuario})
 				)
-
     },
     carrito: (req,res) => {
         res.render("carrito")

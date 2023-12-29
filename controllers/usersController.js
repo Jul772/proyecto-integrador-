@@ -6,26 +6,39 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 const {validationResult}=require('express-validator')
 const bcrypt = require('bcryptjs')
 const cookieParser= require("cookie-parser")
-const session = require("express-session")
+const session = require('express-session');
 const db=require('../database/models')
 
 const usersController={
     login:  (req,res) => {
     res.render("login")
     },
-    procesarlogin: async (req,res) => {
-    let errors= validationResult(req)
-    if(errors.isEmpty()){
-        const {email,password}=req.body
-        const user = await db.User.findOne({ where: { email } });
-        if (user && bcrypt.compareSync(password, user.password)) {
-            req.session.usuarioLogeado = user;
-            return res.render('perfil');
-        } else {
-            return res.render('login', {errorCredenciales:'Credenciales inválidas', old:req.body});
-        } 
-        }else {
-            return res.render("login",{errors:errors.mapped(), old:req.body})
+    procesarlogin: async (req, res) => {
+        try {
+            const correo = req.body.email;
+            const contraseña = req.body.password;
+            const btn = req.body.recordar
+            const usuario = await db.User.findOne({ attributes: ['id', 'password'], where: { email: correo } });
+    
+            if (usuario) {
+                const contraseñaValida = await bcrypt.compare(contraseña, usuario.password);
+    
+                if (contraseñaValida) {
+                    req.session.usuariologueado = usuario.id
+                    let usuario = req.session.usuariologueado
+                    if (btn === true) {
+                        res.cookie('recordame', cliente, { maxAge: 3600000});
+                    }
+                    res.redirect(`/users/perfil/${usuario.id}`);
+                } else {
+                    res.render("error", { mensaje: ERROR_CONTRASENA_INCORRECTA });
+                }
+            } else {
+                res.render("error", { mensaje: "Correo no encontrado" });
+            }
+        } catch (error) {
+            console.error('Error en procesarlogin:', error);
+            res.render("error", { mensaje: "Error en el servidor" });
         }
     },
     // Muestra la vista del registro
@@ -58,6 +71,5 @@ const usersController={
             res.render("users", { user: usuario });
         }
     }
-    
 }
 module.exports = usersController

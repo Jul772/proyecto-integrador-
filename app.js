@@ -8,14 +8,19 @@ const cookieParser= require("cookie-parser")
 const methodOverride = require("method-override")
 const bcrypt = require("bcryptjs")
 const session = require("express-session")
+const recordame = require("./middleware/recordame")
 
-var recordameMiddleware = require("./middleware/recordame")
+app.use(session({
+    secret:"gitfit",
+    resave:false,
+    saveUninitialized:true,
+}))
+app.use(recordame)
 
 app.use(methodOverride('_method'))
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 app.use(cookieParser())
-app.use(recordameMiddleware)
 
 const port=5000
 

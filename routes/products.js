@@ -1,4 +1,5 @@
 const productController = require("../controllers/productController")
+const usersController = require("../controllers/usersController")
 const path=require('path')
 const express = require('express')
 const router = express.Router()
@@ -16,7 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
-router.get('/index',productController.index)
+router.get('/index',productController.index, usersController.user)
 
 router.get("/create",productController.create)
 router.post('/create',upload.single('productImg'),validator.productsValidatorCreate,productController.store)
