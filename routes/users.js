@@ -8,7 +8,7 @@ const validator=require('../middleware/validaciones')
 
 const storage = multer.diskStorage({ 
    destination: function (req, file, cb) {
-      cb(null, './public/images/products'); 
+      cb(null, './public/images/users'); 
    }, 
    filename: function (req, file, cb) { 
       cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  } 

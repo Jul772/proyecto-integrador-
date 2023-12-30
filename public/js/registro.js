@@ -42,6 +42,7 @@ window.addEventListener("load", function () {
             return false;
         } else {
             quitarError(errorImg);
+            img.classList.remove('errorsInput');
             return true;
         }
     }

@@ -18,20 +18,20 @@ const usersController={
             const correo = req.body.email;
             const contraseña = req.body.password;
             const btn = req.body.recordar
-            const usuario = await db.User.findOne({ attributes: ['id', 'password'], where: { email: correo } });
+            const usuarioEncontrado = await db.User.findOne({ attributes: ['id', 'password'], where: { email: correo } });
     
-            if (usuario) {
-                const contraseñaValida = await bcrypt.compare(contraseña, usuario.password);
+            if (usuarioEncontrado) {
+                const contraseñaValida = await bcrypt.compare(contraseña, usuarioEncontrado.password);
     
                 if (contraseñaValida) {
-                    req.session.usuariologueado = usuario.id
-                    let usuario = req.session.usuariologueado
-                    if (btn === true) {
+                    req.session.usuariologueado = usuarioEncontrado.id
+                    if (btn) {
+                        const cliente = { id: usuarioEncontrado.id };
                         res.cookie('recordame', cliente, { maxAge: 3600000});
                     }
-                    res.redirect(`/users/perfil/${usuario.id}`);
+                    res.redirect(`/users/perfil/${usuarioEncontrado.id}`);
                 } else {
-                    res.render("error", { mensaje: ERROR_CONTRASENA_INCORRECTA });
+                    res.render("error", { mensaje: "ERROR_CONTRASENA_INCORRECTA" });
                 }
             } else {
                 res.render("error", { mensaje: "Correo no encontrado" });
@@ -59,7 +59,7 @@ const usersController={
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
                 rol_id:2,
-                avatar: req.body.avatar,
+                avatar: req.file.filename,
                 birthdate: req.body.birthdate
                 })
                 .then(res.redirect("/"))

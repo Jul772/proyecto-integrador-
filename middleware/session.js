@@ -4,11 +4,12 @@ if (sessionStorage.getItem("autosave")) {
 }
 
 btn.addEventListener("change", function () {
-  sessionStorage.setItem("autosave", btn.value);
+    sessionStorage.setItem("autosave", btn.value);
 });
+
 function usuario(req,res){
     req.body.email
-       if(btn = true){
+    if(btn){
         sessionStorage.setItem("email",remail)
         var email = sessionStorage.getItem("email")
     }

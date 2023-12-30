@@ -10,17 +10,18 @@ const bcrypt = require("bcryptjs")
 const session = require("express-session")
 const recordame = require("./middleware/recordame")
 
+app.use(cookieParser())
+
 app.use(session({
     secret:"gitfit",
     resave:false,
-    saveUninitialized:true,
+    saveUninitialized:false,
 }))
 app.use(recordame)
 
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
-app.use(cookieParser())
 
 const port=5000
 

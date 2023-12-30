@@ -3,6 +3,7 @@ const db=require('../database/models');
 
 const homeController = {
     home: function(req,res){
+        console.log(req.session)
         db.Product.findAll({
             raw:true,
             include:[
