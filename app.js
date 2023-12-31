@@ -11,7 +11,6 @@ const session = require("express-session")
 const recordame = require("./middleware/recordame")
 
 app.use(cookieParser())
-
 app.use(session({
     secret:"gitfit",
     resave:false,

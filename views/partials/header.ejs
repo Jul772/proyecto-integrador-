@@ -23,10 +23,14 @@
                 <div class="menu-bars"><i class="fas fa-bars"></i></div>
         </nav>
         <nav class="login-nav">
+            <div class="shopp-cart" id="usuario">
+                <a href="/users/perfil/:id" id="nombreUsuario">
+                    <i class="fas fa-user"></i>
+                </a>
             </div>
-            <div class="login"><a href="/users/registro"><i class="fas fa-user"></i>Registrate</a></div>
-            <div class="login"><a href="/users/login"><i class="fas fa-sign-in-alt"></i>Iniciar sesion</a></div>
-            <div class="shopp-cart"><a href="/products/carrito"><i class="fas fa-shopping-cart"></i>Tu carrito</a></div>
+            <div class="login" id ="divRegister"><a href="/users/registro"><i class="fas fa-user"></i>Registrate</a></div>
+            <div class="login" id ="divLogin"><a href="/users/login"><i class="fas fa-sign-in-alt"></i>Iniciar sesion</a></div>
+            <div class="shopp-cart" id="divCarrito"><a href="/products/carrito"><i class="fas fa-shopping-cart"></i>Tu carrito</a></div>
         </nav>
         <nav class="navegacion">
             <a href="/products/index" class="site">Todos los productos</a>
@@ -36,3 +40,66 @@
             <a class="site">Nutrición</a>
         </nav>
     </header>
+<script> 
+function decodeCookieValue(encodedValue) {
+    return decodeURIComponent(encodedValue.replace(/\+/g, ' '));
+}
+function getCookie(nombre) {
+    var nombreEQ = nombre + "=";
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+            cookie = cookie.substring(1, cookie.length);
+        }
+        if (cookie.indexOf(nombreEQ) === 0) {
+            return decodeCookieValue(cookie.substring(nombreEQ.length, cookie.length));
+        }
+    }
+    return null;
+}
+
+const nombre= async (userId) => {
+  try {
+    const user = await db.User.findOne({
+      attributes: ['id', 'firstName',"avatar"],
+      where: {
+        id: userId,
+      },
+    });
+
+    return user ? user.nombre : null;
+  } catch (error) {
+    console.error('Error al buscar el nombre de usuario en la base de datos:', error);
+    throw new Error('Error al buscar el nombre de usuario en la base de datos:', error);
+  }
+};
+var actualizarNombreUsuarioEnHTML = async () => { 
+    var recordar = getCookie("recordame")
+    if(recordar){
+        document.getElementById("usuario").style.display = "block"
+        document.getElementById("divLogin").style.display = "none"
+        document.getElementById("divRegister").style.display = "none"
+        try {
+            var { id } = JSON.parse(recordar);
+            var nombreUsuario = await nombre(id);
+            if (nombreUsuario) {
+                document.getElementById('nombreUsuario').textContent = nombreUsuario;
+                document.getElementById('usuario').addEventListener('click', () => {
+                    window.location.href = `/users/perfil/${id}`;
+                });
+            }
+        } catch (error) {
+            console.error('Error al parsear la cookie:', error);
+            throw new Error('Error al parsear la cookie:', error);
+        }
+    } else {
+        document.querySelector('.fas.fa-user').style.display = "none"
+        document.getElementById("usuario").style.display = "none"
+        document.getElementById("usuario").style.display = "block"
+        document.getElementById("usuario").style.display = "block"
+        document.getElementById("divCarrito").style.display = "none"
+    }
+}
+actualizarNombreUsuarioEnHTML();
+</script>
