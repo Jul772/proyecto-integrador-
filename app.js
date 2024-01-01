@@ -12,7 +12,6 @@ const recordame = require("./middleware/recordame")
 const cors=require('cors')
 
 app.use(cookieParser())
-
 app.use(session({
     secret:"gitfit",
     resave:false,
