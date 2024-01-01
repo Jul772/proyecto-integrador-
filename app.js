@@ -9,6 +9,7 @@ const methodOverride = require("method-override")
 const bcrypt = require("bcryptjs")
 const session = require("express-session")
 const recordame = require("./middleware/recordame")
+const cors=require('cors')
 
 app.use(cookieParser())
 
@@ -22,6 +23,7 @@ app.use(recordame)
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
+app.use(cors())
 
 const port=5000
 

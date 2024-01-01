@@ -44,10 +44,16 @@ const apiController= {
         })
     },
     products:(req,res)=>{
-        db.Product.findAll(
-            {include:['category']}
-        )
+        const { name } = req.query;
+
+        const whereClause = name ? { name: { [db.Sequelize.Op.like]: `%${name}%` } } : {};
+
+        db.Product.findAll({
+            include:['category'],
+            where:whereClause
+        })
         .then(products=>{
+            let categorias=[]
             let productosPorCategoría={}
             products.forEach(product => {
                 const categoryName = product.category ? product.category.name : 'Sin categoría';
@@ -57,6 +63,9 @@ const apiController= {
                 } else {
                 productosPorCategoría[categoryName]++;
                 }
+                if (!categorias.includes(categoryName)) {
+                    categorias.push(categoryName);
+                }
             });
             let productsPorMostrar=products.map(product=>{
                 return {
@@ -64,18 +73,20 @@ const apiController= {
                     name:product.name,
                     description:product.description,
                     categories:[product.category.name],
-                    detail:`http://localhost:5000/products/detail/${product.id}`
+                    detail:`http://localhost:5000/products/detail/${product.id}`,
+                    img:`http://localhost:5000/images/products/${product.img}`
                 }
             })
             return res.json({
                 count:products.length,
+                categories:categorias,
                 countByCategory:productosPorCategoría,
                 data:productsPorMostrar
             })
         })
         .catch(error => {
-            console.error('Error al obtener usuarios:', error);
-            return res.json({ error: 'Error al buscar usuarios' });
+            console.error('Error al obtener productos:', error);
+            return res.json({ error: 'Error al buscar productos' });
         })
     },
     product:(req,res)=>{
@@ -90,6 +101,7 @@ const apiController= {
                 img:`http://localhost:5000/images/products/${product.img}`,
                 rating:product.rating,
                 description:product.description,
+                detail:`http://localhost:5000/products/detail/${product.id}`
             }
             res.json({
                 data:productoAMostrar
