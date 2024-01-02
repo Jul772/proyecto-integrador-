@@ -10,6 +10,7 @@ const bcrypt = require("bcryptjs")
 const session = require("express-session")
 const recordame = require("./middleware/recordame")
 const cors=require('cors')
+const header=require('./middleware/header')
 
 app.use(cookieParser())
 app.use(session({
@@ -23,6 +24,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'))
 app.use(cors())
+app.use(header)
 
 const port=5000
 

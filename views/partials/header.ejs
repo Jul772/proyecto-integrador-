@@ -11,11 +11,16 @@
                 <div class="menu-bars"><i class="fas fa-bars"></i></div>
         </nav>
         <nav class="login-nav">
+
+            <% if (!locals.isLogged) { %>
+                <div class="login" id ="divRegister"><a href="/users/registro"><i class="fas fa-user"></i>Registrate</a></div>
+                <div class="login" id ="divLogin"><a href="/users/login"><i class="fas fa-sign-in-alt"></i>Iniciar sesion</a></div>
+            <% } if(locals.isLogged){ %>
             <div class="shopp-cart" id="usuario"><a href="/users/perfil/:id" id="nombreUsuario"><i class="fas fa-user"></i></a></div>
-            <div class="logout"><i class="fas fa-sign-out-alt"></i><a href="/users/logout">Cerrar Sesión</a></div>
-            <div class="login" id ="divRegister"><a href="/users/registro"><i class="fas fa-user"></i>Registrate</a></div>
-            <div class="login" id ="divLogin"><a href="/users/login"><i class="fas fa-sign-in-alt"></i>Iniciar sesion</a></div>
             <div class="shopp-cart" id="divCarrito"><a href="/products/carrito"><i class="fas fa-shopping-cart"></i>Tu carrito</a></div>
+            <div class="logout"><i class="fas fa-sign-out-alt"></i><a href="/users/logout">Cerrar Sesión</a></div>
+            <%}%>
+            
         </nav>
         <nav class="navegacion">
             <a href="/products/index" class="site">Todos los productos</a>
