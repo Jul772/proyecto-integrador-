@@ -18,15 +18,16 @@ const usersController={
             const correo = req.body.email;
             const contraseña = req.body.password;
             const btn = req.body.recordar
-            const usuarioEncontrado = await db.User.findOne({ attributes: ['id', 'password'], where: { email: correo } });
+            const usuarioEncontrado = await db.User.findOne({ attributes: ['id', 'password','firstName','username','lastName','email','avatar','rol_id'], where: { email: correo } });
     
             if (usuarioEncontrado) {
                 const contraseñaValida = await bcrypt.compare(contraseña, usuarioEncontrado.password);
     
                 if (contraseñaValida) {
-                    req.session.usuariologueado = usuarioEncontrado.id
+                    delete usuarioEncontrado.password
+                    req.session.usuariologueado = usuarioEncontrado
                     if (btn) {
-                        const cliente = { id: usuarioEncontrado.id };
+                        const cliente = usuarioEncontrado;
                         res.cookie('recordame', cliente, { maxAge: 3600000});
                     }
                     res.redirect(`/users/perfil/${usuarioEncontrado.id}`);
@@ -70,6 +71,10 @@ const usersController={
         if(usuario){
             res.render("users", { user: usuario });
         }
+    },
+    logout:(req,res)=>{
+        req.session.destroy();
+        return res.redirect('/')
     }
 }
 module.exports = usersController

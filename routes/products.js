@@ -7,6 +7,9 @@ const multer = require("multer")
 const { body } = require("express-validator")
 const validator=require('../middleware/validaciones')
 
+const adminLogueado=require('../middleware/adminLogueado')
+const userLogueado=require('../middleware/userLogueado')
+
 const storage = multer.diskStorage({ 
    destination: function (req, file, cb) {
    cb(null, './public/images/products'); 
@@ -19,16 +22,16 @@ const upload = multer({storage});
 
 router.get('/index',productController.index, usersController.user)
 
-router.get("/create",productController.create)
+router.get("/create",adminLogueado,productController.create)
 router.post('/create',upload.single('productImg'),validator.productsValidatorCreate,productController.store)
 
-router.get("/carrito",productController.carrito)
+router.get("/carrito",userLogueado,productController.carrito)
 
 router.get("/detail/:id",productController.detail)
 
-router.get("/edit/:id",productController.edit)
+router.get("/edit/:id",adminLogueado,productController.edit)
 router.put("/edit/:id",upload.single('productImg'),validator.productsValidatorUpdate, productController.update)
 
-router.delete('/delete/:id', productController.delete)
+router.delete('/delete/:id',adminLogueado, productController.delete)
 
 module.exports = router
