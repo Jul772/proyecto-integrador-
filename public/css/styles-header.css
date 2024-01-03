@@ -9,6 +9,7 @@ header{
     display: flex;
     background-color: #8080808f;
     flex-wrap: wrap;
+    width: 100%;
 }
 body{
     width: 100%;
