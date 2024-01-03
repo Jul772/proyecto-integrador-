@@ -134,3 +134,59 @@ footer{
 
     /* Otros estilos específicos para pantallas pequeñas */
 }
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h2.text-center {
+
+    font-size: 24px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-body {
+    padding: 2em;
+}
+
+.card-footer {
+    margin-left: 770px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-radius: 10px;
+}
+.productonombre{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+th {
+    text-align: inherit;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}

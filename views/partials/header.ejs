@@ -16,9 +16,9 @@
                 <div class="login" id ="divRegister"><a href="/users/registro"><i class="fas fa-user"></i>Registrate</a></div>
                 <div class="login" id ="divLogin"><a href="/users/login"><i class="fas fa-sign-in-alt"></i>Iniciar sesion</a></div>
             <% } if(locals.isLogged){ %>
-            <div class="shopp-cart" id="usuario"><a href="/users/perfil/:id" id="nombreUsuario"><i class="fas fa-user"></i></a></div>
-            <div class="shopp-cart" id="divCarrito"><a href="/products/carrito"><i class="fas fa-shopping-cart"></i>Tu carrito</a></div>
-            <div class="logout"><i class="fas fa-sign-out-alt"></i><a href="/users/logout">Cerrar Sesión</a></div>
+            <div class="shopp-cart" class="usuario"><a class="usuario" href=<%=`/users/perfil/${locals.userLogged.id}`%> id="nombreUsuario"><img class="avatar" src=<%=`/images/users/${locals.userLogged.avatar}`%> alt="Img perfil usuario"><p class="name"><%=locals.userLogged.firstName%></p></a></div>
+            <div class="shopp-cart" id="divCarrito"><a href=<%=`/products/carrito/${locals.userLogged.id}`%>><i class="fas fa-shopping-cart"></i>Tu carrito</a></div>
+            <div class="logout"><i class="fas fa-sign-out-alt"></i><a class="logout" href="/users/logout">Cerrar Sesión</a></div>
             <%}%>
             
         </nav>

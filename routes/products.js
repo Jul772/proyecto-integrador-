@@ -25,7 +25,9 @@ router.get('/index',productController.index, usersController.user)
 router.get("/create",adminLogueado,productController.create)
 router.post('/create',upload.single('productImg'),validator.productsValidatorCreate,productController.store)
 
-router.get("/carrito",userLogueado,productController.carrito)
+
+router.get("/carrito/:id",userLogueado,productController.carrito)
+router.post("/carrito/:id",userLogueado,productController.addCarrito)
 
 router.get("/detail/:id",productController.detail)
 

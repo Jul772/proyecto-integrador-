@@ -18,7 +18,7 @@ const usersController={
             const correo = req.body.email;
             const contraseña = req.body.password;
             const btn = req.body.recordar
-            const usuarioEncontrado = await db.User.findOne({ attributes: ['id', 'password','firstName','username','lastName','email','avatar','rol_id'], where: { email: correo } });
+            const usuarioEncontrado = await db.User.findOne({ attributes: ['id', 'password','firstName','username','lastName','email','avatar','rol_id','avatar'], where: { email: correo } });
     
             if (usuarioEncontrado) {
                 const contraseñaValida = await bcrypt.compare(contraseña, usuarioEncontrado.password);

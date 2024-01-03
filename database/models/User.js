@@ -51,7 +51,7 @@ module.exports=(sequelize,dataTypes)=>{
         }),
         User.hasOne(modelos.Carrito,{
             as:'carrito',
-            foreignKey:'user_id'
+            foreignKey:'id_user'
         })
     }
     return User

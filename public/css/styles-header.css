@@ -10,6 +10,12 @@ header{
     background-color: #8080808f;
     flex-wrap: wrap;
 }
+body{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 h2{
     color: white;
     text-align: center;
@@ -32,6 +38,24 @@ h2{
 .search{
     padding: 5px;
     border-radius: 5px;
+}
+.avatar{
+    height: 90px;
+    border-radius: 5px;
+}
+.usuario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.name{
+    display: flex;
+    align-self: center;
+    width: fit-content;
+    font-weight: bold;
+}
+.logout{
+    color: red;
 }
 .busqueda{
     display: flex;

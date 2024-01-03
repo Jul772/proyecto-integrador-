@@ -13,9 +13,6 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 }
-p{
-    color: white
-}
 .producto-0 {
 	max-width: 100%;
 	max-height: 100%;
@@ -415,6 +412,13 @@ h2{
 	align-items: center;
     justify-content: end;
     position: relative;
+}
+.size{
+	padding: 3px;
+	height: 30px;
+	width: 50px;
+	border-radius: 5px;
+	text-align: center;
 }
 .copyright{
     display: flex;

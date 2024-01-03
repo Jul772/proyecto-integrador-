@@ -6,10 +6,6 @@ module.exports = (sequelize, dataTypes) => {
                 type: dataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true
-            },
-            name: {
-                type: dataTypes.STRING,
-                allowNull: false
             }
         },
         {
@@ -27,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
         });
         Carrito.belongsTo(models.User,{
             as:'user',
-            foreignKey:'user_id'
+            foreignKey:'id_user'
         })
     };
 

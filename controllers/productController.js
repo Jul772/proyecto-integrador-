@@ -2,7 +2,6 @@ const express=require('express')
 const fs = require('fs');
 const { validationResult } = require('express-validator');
 const db=require('../database/models');
-
 const productController = {
     index:async function(req,res){
 		let usuario = await db.User.findByPk(req.params.id)
@@ -17,8 +16,44 @@ const productController = {
 				)
     },
     carrito: (req,res) => {
-        res.render("carrito")
+		let products=[
+			{
+				name:'Proteina Platinum Whey Isolate X 2 Lbs Version DOYPACK - Star Nutrition - Vainilla',
+				price:'29.99',
+				img:'1702057635136_img_.png'
+			}
+		]
+        res.render("carrito",
+		{products:products})
     },
+	addCarrito:(req,res)=>{
+		const addToCarrito = async (idUsuario, idProducto) => {
+			try {
+				// Primero, verifica si el usuario tiene un carrito existente
+				const carritoUsuario = await db.Carrito.findOne({
+				where: { id_user: idUsuario },
+				});
+			
+				if (!carritoUsuario) {
+				  // Si el usuario no tiene un carrito, puedes crear uno
+				const nuevoCarrito = await db.Carrito.create({
+					id_user: idUsuario,
+				});
+			
+				}
+			
+				// Ahora, puedes agregar el producto al carrito
+				await carritoUsuario.addProductos_carrito(idProducto);
+			
+				console.log('Producto agregado al carrito con éxito.');
+			} catch (error) {
+				console.error('Error al agregar producto al carrito:', error);
+			}
+			};
+		addToCarrito(req.body.idUsuario,req.body.idProducto)
+
+		res.redirect('/products/carrito/'+req.session.usuariologueado.id)
+	},
     detail: (req,res) => {
 		db.Product.findByPk(req.params.id)
 			.then(product=>{
