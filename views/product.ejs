@@ -39,24 +39,23 @@
 					</div>
 				</div>
 
-				<form method="post" class="container-add-cart" action=
 				<%if(locals.userLogged){ %>
-					<%=`/products/carrito/${locals.userLogged.id}`%>
-				<%} else {%>
-					<%='/users/login'%>
-				<%}%>
-				>
-				<%if(locals.userLogged){ %>
+					<form method="post" class="container-add-cart" action=<%=`/products/carrito/${locals.userLogged.id}`%>>
 					<input type="hidden" name="idProducto" value=<%=product.id%>>
 					<input type="hidden" name="idUsuario" value=<%=locals.userLogged.id%>>
-				<%}%>
 					<button class="btn-add-to-cart" type="submit">
 						<i class="fa-solid fa-plus"></i>
 						Añadir al carrito
 					</button>
-
-
 				</form>
+				<%} else {%>
+					<a href="/users/login" class="btn-add-to-cart" type="submit">
+						<i class="fa-solid fa-plus"></i>
+						Añadir al carrito
+					</a>
+				<%}%>
+
+
 
 
 				<div class="container-description">

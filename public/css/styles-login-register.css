@@ -41,18 +41,23 @@ input[type="password"]{
 .input-contenedor{
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 15px;
     border: 1px solid #aaa;
     border-radius: 5px;
+    text-align: center;
 }
 #recuerdame{
     padding: 10px;
 }
 #avatar{
+    display: block;
     width: calc(100% - 121px);
+    align-self: center;
 }
 label{
     padding: 0px 10px;
+    text-align: center;
 }
 .custom-checkbox{
     padding-left: 20px;

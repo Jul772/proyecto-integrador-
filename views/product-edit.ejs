@@ -20,7 +20,7 @@
             <label for="name">Nombre del producto:</label>
             <input class="name" type="text" id="name" name="name" 
             <%if(locals.old&&old.name){%>
-                value="<%=old.name%>"
+                value="<%=old.name%>">
                 <%}else{%>
             value="<%= productToEdit.name %>">
             <%}%>
@@ -33,7 +33,7 @@
             <label for="price">Precio:</label>
             <input type="number" id="price" name="price" 
             <%if(locals.old&&old.price){%>
-                value="<%=old.price%>"
+                value="<%=old.price%>">
                 <%}else{%>
             value="<%= productToEdit.price %>"<%}%>
             step="0.01">
