@@ -15,44 +15,62 @@ const productController = {
 				res.render('index',{products:products, user: usuario})
 				)
     },
-    carrito: (req,res) => {
-		let products=[
-			{
-				name:'Proteina Platinum Whey Isolate X 2 Lbs Version DOYPACK - Star Nutrition - Vainilla',
-				price:'29.99',
-				img:'1702057635136_img_.png'
-			}
-		]
-        res.render("carrito",
-		{products:products})
-    },
-	addCarrito:(req,res)=>{
-		const addToCarrito = async (idUsuario, idProducto) => {
+    carrito: async (req,res) => {
+		const obtenerProductosEnCarrito = async (idUsuario) => {
 			try {
-				// Primero, verifica si el usuario tiene un carrito existente
+				// Realiza la consulta a la base de datos para obtener los productos en el carrito
 				const carritoUsuario = await db.Carrito.findOne({
-				where: { id_user: idUsuario },
+					where: { id_user: idUsuario },
+					include: [{ model: db.Product, as: 'productos_carrito' }]
 				});
-			
-				if (!carritoUsuario) {
-				  // Si el usuario no tiene un carrito, puedes crear uno
-				const nuevoCarrito = await db.Carrito.create({
+		
+				if (carritoUsuario) {
+					// Si se encuentra el carrito, obtén los productos asociados
+					return carritoUsuario.productos_carrito;
+				} else {
+					// Si no hay carrito, retorna un array vacío o null según tu lógica de negocio
+					return [];
+				}
+			} catch (error) {
+				console.error('Error al obtener productos en el carrito desde la base de datos:', error);
+				throw error;
+			}
+		};
+		try{
+			let products= await obtenerProductosEnCarrito(req.session.usuariologueado.id)
+			res.render("carrito", { products: products });
+		}
+		catch(error){
+			console.error('Error al obtener productos en el carrito:', error);
+        // Manejar el error y enviar una respuesta adecuada
+        res.status(500).send('Error interno del servidor');
+		}
+    },
+	addCarrito: async (req, res) => {
+		try {
+			const idUsuario = req.body.idUsuario;
+			const idProducto = req.body.idProducto;
+	
+			// Verifica si el usuario tiene un carrito existente
+			let carritoUsuario = await db.Carrito.findOne({
+				where: { id_user: idUsuario },
+			});
+	
+			if (!carritoUsuario) {
+				// Si el usuario no tiene un carrito, créalo
+				carritoUsuario = await db.Carrito.create({
 					id_user: idUsuario,
 				});
-			
-				}
-			
-				// Ahora, puedes agregar el producto al carrito
-				await carritoUsuario.addProductos_carrito(idProducto);
-			
-				console.log('Producto agregado al carrito con éxito.');
-			} catch (error) {
-				console.error('Error al agregar producto al carrito:', error);
 			}
-			};
-		addToCarrito(req.body.idUsuario,req.body.idProducto)
-
-		res.redirect('/products/carrito/'+req.session.usuariologueado.id)
+	
+			// Ahora, puedes agregar el producto al carrito
+			await carritoUsuario.addProductos_carrito(idProducto, { through: { cantidad: 1 } });
+	
+			console.log('Producto agregado al carrito con éxito.');
+			res.redirect('/products/carrito/' + req.session.usuariologueado.id);
+		} catch (error) {
+			console.error('Error al agregar producto al carrito:', error);
+		}
 	},
     detail: (req,res) => {
 		db.Product.findByPk(req.params.id)

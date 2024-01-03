@@ -173,6 +173,13 @@ h2.text-center {
     gap: 15px;
     align-items: center;
 }
+.plata{
+    color: rgb(139, 255, 139);
+}
+
+.cantidad{
+    text-align: center;
+}
 
 th {
     text-align: inherit;
